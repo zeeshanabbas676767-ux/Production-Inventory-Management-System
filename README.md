@@ -24,3 +24,9 @@ This project demonstrates full **CRUD (Create, Read, Update, Delete)** operation
 ---
 
 ## Project Structure
+
+## Project Screenshots  
+
+![Screenshot1](Screenshots/Screenshot%20(332).png)  
+![Screenshot2](Screenshots/Screenshot%20(333).png)
+
