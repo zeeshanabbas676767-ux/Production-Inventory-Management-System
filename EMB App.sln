@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMB App", "EMB App\EMB App.csproj", "{16552D23-026E-4BA9-AD52-A060AEDA9504}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseLayer", "DataBaseLibrary\DataBaseLayer.csproj", "{53C815D9-4EC7-4C72-93AA-8DD5011AF26D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{16552D23-026E-4BA9-AD52-A060AEDA9504}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16552D23-026E-4BA9-AD52-A060AEDA9504}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16552D23-026E-4BA9-AD52-A060AEDA9504}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16552D23-026E-4BA9-AD52-A060AEDA9504}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53C815D9-4EC7-4C72-93AA-8DD5011AF26D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53C815D9-4EC7-4C72-93AA-8DD5011AF26D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53C815D9-4EC7-4C72-93AA-8DD5011AF26D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53C815D9-4EC7-4C72-93AA-8DD5011AF26D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3D3FF4E2-095D-4735-B589-5A548C93D5F3}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,88 @@
+﻿@model List<EMB_App.Models.Gen_ProductsMV>
+@{
+    ViewBag.Title = "Preview Products";
+    var previewList = ViewBag.PreviewList as List<EMB_App.Models.Gen_ProductsMV>;
+    var brand = ViewBag.Brand as string;
+    var category = ViewBag.Category as string;
+}
+
+@using (Html.BeginForm("PreviewExcel", "Gen_Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div id="importSection" class="mt-4" style="display:none;">
+        <div class="row g-2">
+            <div class="col-md-2 col-sm-6">
+                <label>Brand:</label>
+                <input type="text" name="brand" class="form-control" required value="@brand" />
+            </div>
+            <div class="col-md-2 col-sm-6">
+                <label>Category:</label>
+                <input type="text" name="category" class="form-control" required value="@category" />
+            </div>
+            <div class="col-md-5 col-sm-6">
+                <label>Select File:</label>
+                <input type="file" name="excelFile" class="form-control" accept=".xlsx" required />
+            </div>
+        </div>
+        <div class="gap-2 mt-3">
+            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i>  <strong>Preview</strong></button>
+            <a href="@Url.Action("Products", "Gen_Products")" class="btn btn-sm btn-secondary">
+                <strong>Back </strong> <i class="fa fa-long-arrow-right"></i>
+            </a>
+
+        </div>
+    </div>
+}
+
+
+@using (Html.BeginForm("UploadExcel", "Gen_Products", FormMethod.Post))
+{
+
+    if (previewList != null && previewList.Any())
+    {
+        <div class="row" id="previewSection">
+            <!-- Left Side: Form -->
+            <div class="col-md-12">
+                <div class="form-card mb-2 p-3 shadow-sm rounded-4">
+                    <table class="table table-bordered" style="border:1px solid">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Name</th>
+                                <th>Code</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in previewList)
+                            {
+                                <tr>
+                                    <td>@item.Category_Name</td>
+                                    <td>@item.Prod_Name</td>
+                                    <td>@item.Prod_Code</td>
+                                    <td>@item.Price</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <div class="gap-2 mt-3">
+                        <button type="submit"class="btn btn-primary"><i class="fa fa-save"></i><strong> Save in Product</strong></button>
+                        <a href="@Url.Action("Products", "Gen_Products")" class="btn btn-secondary">
+                            <strong>Don't Save </strong>
+                        </a>
+                        <button type="button" class="btn btn-dark" onclick="showImportSection()"><i class="fa fa-long-arrow-left"></i><strong> Import again</strong></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    function showImportSection() {
+        $('#importSection').show();
+        $('#productSection').hide();
+        $('#previewSection').hide();
+    }
+</script>

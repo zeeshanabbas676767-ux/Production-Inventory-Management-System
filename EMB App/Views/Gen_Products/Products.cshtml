@@ -1,0 +1,232 @@
+﻿@model DataBaseLibrary.Gen_Products
+
+@{
+    ViewBag.Title = "Product";
+}
+@{
+    var previewList = ViewBag.PreviewList as List<EMB_App.Models.Gen_ProductsMV>;
+    var brand = ViewBag.Brand as string;
+    var category = ViewBag.Category as string;
+}
+<div id="productSection" @(previewList != null ? "style='display:none'" : "")>
+    @using (Html.BeginForm("SaveProducts", "Gen_Products", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @*<h4>@(Model.Id > 0 ? "Edit Service" : "Add New Service")</h4>
+        <hr />*@
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+        <div class="row g-3">
+            <div class="col-md-2">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Category_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.Category_Name, new { htmlAttributes = new { @class = "form-control" ,id= "Category" } })
+                    @Html.ValidationMessageFor(model => model.Category_Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Brand_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.Brand_Name, new { htmlAttributes = new { @class = "form-control",id="Brand" } })
+                    @Html.ValidationMessageFor(model => model.Brand_Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Prod_Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.Prod_Description, new { htmlAttributes = new { @class = "form-control",id= "Description" } })
+                    @Html.ValidationMessageFor(model => model.Prod_Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Prod_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.Prod_Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Prod_Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Prod_Code, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.Prod_Code, new { htmlAttributes = new { @class = "form-control",id= "Code" } })
+                    @Html.ValidationMessageFor(model => model.Prod_Code, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" ,id= "Price" } })
+                    @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group mt-3">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="@(Model.Id > 0 ? "Update" : "Create")" class="btn btn-primary"style="font-weight:600;" />
+                @if (Model.Id > 0)
+                {
+                    @Html.ActionLink("Cancel", "Products", null, new { @class = "btn btn-secondary" })
+                }
+                else
+                {
+                    <input type="reset" value="Clear" class="btn btn-dark"style="font-weight:600;" />
+                }
+                <button type="button" class="btn btn-info btn-sm shadow-sm" onclick="showImportSection()">
+                    <i class="fa fa-upload"></i> Import
+                </button>
+            </div>
+        </div>
+    </div>
+    }
+    <div class="table-responsive mt-3">
+        <table class="table table-bordered text-center">
+            <thead class="table-light">
+                <tr>
+                    <th>Category_Name</th>
+                    <th>Brand_Name</th>
+                    <th>Prod_Description</th>
+                    <th>Prod_Name</th>
+                    <th>Prod_Code</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewBag.ProductList != null && ((IEnumerable<DataBaseLibrary.Gen_Products>)ViewBag.ProductList).Any())
+                {
+                    foreach (var item in (IEnumerable<DataBaseLibrary.Gen_Products>)ViewBag.ProductList)
+                    {
+                        <tr>
+                            <td>@item.Category_Name</td>
+                            <td>@item.Brand_Name</td>
+                            <td>@item.Prod_Description</td>
+                            <td>@item.Prod_Name</td>
+                            <td>@item.Prod_Code</td>
+                            <td>@item.Price</td>
+                            <td>
+                                @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-sm btn-outline-success me-2 shadow-sm fa fa-edit", title = "Edit" })
+                                @using (Html.BeginForm("DeleteProduct", "Gen_Products", FormMethod.Post, new { onsubmit = "return confirm('Are you sure you want to delete ?');", style = "display:inline" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.Hidden("id", item.Id)
+                                    <button type="submit" class="btn btn-sm btn-outline-danger shadow-sm" title="Delete">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                }
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="7" class="text-muted">No Products found.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="right-panel">
+    <div id="importSection" style="display:none;">
+        @using (Html.BeginForm("PreviewExcel", "Gen_Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="row">
+                <!-- Left Side: Form -->
+                <div class="col-md-12">
+                    <div class="form-card mb-2 p-3 shadow-sm rounded-4">
+                        <div class="row g-2">
+                            <div class="col-md-2 col-sm-6">
+                                <label>Brand:</label>
+                                <input type="text" name="brand" class="form-control" required value="@brand" />
+                            </div>
+                            <div class="col-md-2 col-sm-6">
+                                <label>Category:</label>
+                                <input type="text" name="category" class="form-control" required value="@category" />
+                            </div>
+                            <div class="col-md-5 col-sm-6">
+                                <label>Select File:</label>
+                                <input type="file" name="excelFile" class="form-control" accept=".xlsx" required />
+                            </div>
+                        </div>
+                        <div class="gap-2 mt-3">
+                            <button type="submit" class="btn btn-primary" style="height:33px"><i class="fa fa-eye"></i>  <strong>Preview</strong></button>
+                            <button type="button" class="btn btn-dark" style="height:33px" onclick="hideImportSection()"> <strong>Back</strong> <i class="fa fa-long-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+
+        @if (previewList != null && previewList.Any())
+        {
+            <div class="form-card mt-2">
+                <h6 class="fw-bold">Preview Products</h6>
+                <table class="table table-sm table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Name</th>
+                            <th>Code</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in previewList)
+                        {
+                            <tr>
+                                <td>@item.Category_Name</td>
+                                <td>@item.Prod_Name</td>
+                                <td>@item.Prod_Code</td>
+                                <td>@item.Price</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @using (Html.BeginForm("UploadExcel", "Gen_Products", FormMethod.Post))
+                {
+                    <button type="submit" class="btn btn-sm btn-dark">Save All</button>
+                }
+            </div>
+        }
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function showImportSection() {
+        $('#productSection').hide();
+        $('#importSection').show();
+    }
+
+    function hideImportSection() {
+        $('#importSection').hide();
+        $('#productSection').show();
+    }
+
+    $('#Brand').on('change', function () {
+        var brandName = $(this).val();
+        if (brandName) {
+            $.getJSON('@Url.Action("GetCategoryDetailsByBrand", "Gen_Products")', { brandName: brandName }, function (data) {
+                if (data.success) {
+                    $('#Category').val(data.category);
+                    $('#Description').val(data.description);
+                    $('#Code').val(data.code);
+                    $('#Price').val(data.price);
+/*                    $('#Tax').val(data.tax);*/
+                } else {
+                    alert("Nothing found for this brand.");
+                    clearFormProduct();
+                }
+            });
+        }
+    }); 
+    //$('#Price').on('input', function () {
+    //    const original = $('#OriginalPrice').val();
+    //    const current = $(this).val();
+    //    $('#Price_Method').val(original && current !== original ? 'Product' : 'Category');
+    //});
+</script>

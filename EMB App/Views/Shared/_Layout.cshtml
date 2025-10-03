@@ -1,0 +1,693 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Bootstrap Admin App + jQuery">
+    <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+    <title>@ViewBag.Title - EMB Production</title>
+    <!--New Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- =============== VENDOR STYLES ===============-->
+    <!-- FONT AWESOME-->
+    <link rel="stylesheet" href="~/Content/Template/vendor/font-awesome/css/font-awesome.css">
+    <!-- SIMPLE LINE ICONS-->
+    <link rel="stylesheet" href="~/Content/Template/vendor/simple-line-icons/css/simple-line-icons.css">
+    <!-- ANIMATE CSS-->
+    <link rel="stylesheet" href="~/Content/Template/vendor/animate.css/animate.css">
+    <!-- WHIRL (spinners)-->
+    <link rel="stylesheet" href="~/Content/Template/vendor/whirl/dist/whirl.css">
+    <!-- Datatables-->
+    <link rel="stylesheet" href="~/Content/Template/vendor/datatables.net-bs4/css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="~/Content/Template/vendor/datatables.net-keytable-bs/css/keyTable.bootstrap.css">
+    <link rel="stylesheet" href="~/Content/Template/vendor/datatables.net-responsive-bs/css/responsive.bootstrap.css">
+    <!-- WEATHER ICONS-->
+    <link rel="stylesheet" href="~/Content/Template/vendor/weather-icons/css/weather-icons.css">
+    <!-- =============== BOOTSTRAP STYLES ===============-->
+    <link rel="stylesheet" href="~/Content/Template/css/bootstrap.css" id="bscss">
+    <!-- =============== APP STYLES ===============-->
+    <link rel="stylesheet" href="~/Content/Template/css/app.css" id="maincss">
+    <style>
+        /* Base Variables */
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3f37c9;
+            --accent-color: #4895ef;
+            --success-color: #4cc9f0;
+            --danger-color: #f72585;
+            --warning-color: #f8961e;
+            --info-color: #43aa8b;
+            --text-primary: #2b2d42;
+            --text-secondary: #8d99ae;
+            --bg-light: #f8f9fa;
+            --bg-dark: #212529;
+            --sidebar-width: 260px;
+            --header-height: 60px;
+            --footer-height: 50px;
+            --transition-speed: 0.3s;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Dark Mode Variables */
+        .dark-mode {
+            --primary-color: #4895ef;
+            --secondary-color: #4361ee;
+            --accent-color: #3f37c9;
+            --text-primary: #f8f9fa;
+            --text-secondary: #adb5bd;
+            --bg-light: #212529;
+            --bg-dark: #191c1f;
+        }
+
+        /* Base Styles */
+        body {
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-primary);
+            transition: background-color var(--transition-speed);
+            overflow-x: hidden;
+        }
+
+        .app-container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        .app-header {
+            height: var(--header-height);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            box-shadow: var(--box-shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            padding: 0 1.5rem;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 32px;
+            width: auto;
+        }
+
+        .brand-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .navbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Theme Switcher */
+        .theme-switcher {
+            position: relative;
+        }
+
+        .theme-checkbox {
+            opacity:0;
+            position: absolute;
+        }
+
+        .theme-label {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px;
+            position: relative;
+            height: 26px;
+            width: 50px;
+            transform: scale(1);
+        }
+
+            .theme-label .fa-sun {
+                color: #f1c40f;
+            }
+
+            .theme-label .fa-moon {
+                color: #f39c12;
+            }
+
+        .theme-ball {
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            height: 22px;
+            width: 22px;
+            transform: translateX(0px);
+            transition: transform 0.2s linear;
+        }
+
+        .theme-checkbox:checked + .theme-label .theme-ball {
+            transform: translateX(24px);
+        }
+
+        /* Sidebar Styles */
+        .app-content {
+            display: flex;
+            flex: 1;
+            margin-top: var(--header-height);
+        }
+
+        .app-sidebar {
+            width: var(--sidebar-width);
+            background: linear-gradient(135deg, var(--bg-dark), #1a1a2e);
+            color: white;
+            height: calc(100vh - var(--header-height));
+            position: fixed;
+            left: 0;
+            transition: transform var(--transition-speed);
+            z-index: 900;
+            overflow-y: auto;
+        }
+
+        .sidebar-nav {
+            padding: 1rem 0;
+        }
+
+        .nav-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all var(--transition-speed);
+        }
+
+            .nav-link:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                color: white;
+            }
+
+            .nav-link.active {
+                background-color: rgba(255, 255, 255, 0.15);
+                color: white;
+                border-left: 4px solid var(--accent-color);
+            }
+
+        .nav-icon {
+            margin-right: 12px;
+            font-size: 1.1rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        .nav-text {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .dropdown-icon {
+            margin-left: auto;
+            transition: transform var(--transition-speed);
+        }
+
+        .rotate-90 {
+            transform: rotate(90deg);
+        }
+
+        /* Submenu Styles */
+        .submenu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: rgba(0, 0, 0, 0.2);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height var(--transition-speed);
+        }
+
+        .has-submenu.open .submenu {
+            max-height: 1000px;
+        }
+
+        .submenu-header {
+            padding: 0.5rem 1.5rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 0.5rem;
+        }
+
+        .submenu-link {
+            display: flex;
+            align-items: center;
+            padding: 0.6rem 1.5rem 0.6rem 3rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: all var(--transition-speed);
+        }
+
+            .submenu-link:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                color: white;
+            }
+
+            .submenu-link i {
+                margin-right: 8px;
+                font-size: 0.9rem;
+                width: 18px;
+                text-align: center;
+            }
+
+        /* Main Content Styles */
+        .main-content {
+            flex: 1;
+            padding: 1.5rem;
+            margin-left: var(--sidebar-width);
+            min-height: calc(100vh - var(--header-height) - var(--footer-height));
+            transition: margin-left var(--transition-speed);
+        }
+
+        .content-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .page-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .breadcrumb {
+            display: flex;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            background-color: transparent;
+            font-size: 0.85rem;
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: "›";
+            padding: 0 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb-item.active {
+            color: var(--text-secondary);
+        }
+
+        .content-body {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .dark-mode .content-body {
+            background-color: var(--bg-dark);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Footer Styles */
+        .app-footer {
+            height: var(--footer-height);
+            background-color: var(--bg-dark);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            padding: 0 1.5rem;
+            margin-left: var(--sidebar-width);
+            font-size: 0.85rem;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .footer-divider {
+            opacity: 0.5;
+        }
+
+        .system-time {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-left: auto;
+        }
+
+        /* Responsive Styles */
+        @@media (max-width: 992px) {
+            .app-sidebar {
+                transform: translateX(-100%);
+            }
+
+                .app-sidebar.mobile-open {
+                    transform: translateX(0);
+                }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .app-footer {
+                margin-left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        /* Animations */
+        @@keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        /* Utility Classes */
+        .text-danger {
+            color: var(--danger-color);
+        }
+
+        .text-success {
+            color: var(--success-color);
+        }
+
+        .text-warning {
+            color: var(--warning-color);
+        }
+
+        .text-info {
+            color: var(--info-color);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 9px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: white;
+           
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: darkgray;
+            border-radius: 5px;
+       
+        }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background-color: gray;
+               
+            }
+    </style>
+
+</head>
+
+<body class="dark-mode">
+    <!-- Default to dark mode with toggle option -->
+    <main class="app-container">
+        <!-- Top Navigation Bar -->
+        <header class="app-header">
+            <nav class="navbar">
+                <div class="navbar-brand">
+                    <div class="brand-logo">
+                        @*<img src="~/Content/Template/img/user/download.png" alt="BBJAN BRANCH" class="logo-img"/>*@
+                        <span class="brand-text">BBJAN BRANCH</span>
+                    </div>
+                    <button class="navbar-toggler mobile-menu-btn">
+                        <span class="menu-icon"></span>
+                    </button>
+                </div>
+
+                <div class="navbar-actions block-center">
+                    <h4>Light/Dark</h4>
+                    <div class="theme-switcher">
+                        <input type="checkbox" id="theme-toggle" class="theme-checkbox">
+                        <label for="theme-toggle" class="theme-label">
+                            <i class="fas fa-sun"></i>
+                            <i class="fas fa-moon-o"></i>
+                            <span class="theme-ball"></span>
+                        </label>
+                    </div>
+                    @*<div class="user-profile">
+            <div class="profile-dropdown">
+                <div class="profile-avatar">
+                   <i class="fa fa-user-alt"></i>
+                </div>
+                <div class="dropdown-content">
+                    <a href="#"><i class="fas fa-user-cog"></i> Profile</a>
+                    <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                    <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>*@
+                </div>
+            </nav>
+        </header>
+
+        <!-- App Content Area -->
+        <div class="app-content">
+            <!-- Sidebar Navigation -->
+            <aside class="app-sidebar">
+                <nav class="sidebar-nav">
+                    <ul class="nav-menu">
+                        <li class="nav-item active">
+                            <a href="@Url.Content("~/DashBoard/DashBoardHome")" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <span class="nav-text">Dashboard</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item has-submenu">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-boxes"></i>
+                                <span class="nav-text">Inventory</span>
+                                <i class="dropdown-icon fas fa-chevron-right"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-header">Inventory</li>
+                                <li><a href="@Url.Content("~/Gen_Brands/Brand")" class="submenu-link"><i class="fas fa-tags"></i> Brand</a></li>
+                                <li><a href="@Url.Content("~/Gen_Categories/Categories")" class="submenu-link"><i class="fas fa-folder"></i> Category</a></li>
+                                <li><a href="@Url.Content("~/Gen_Stocks/Stock")" class="submenu-link"><i class="fas fa-chart-line"></i> Stock</a></li>
+                                <li><a href="@Url.Content("~/Gen_Design/Design")" class="submenu-link"><i class="fas fa-palette"></i> Design</a></li>
+                                <li><a href="@Url.Content("~/Gen_ThreadUsage/ThreadUsage")" class="submenu-link"><i class="fas fa-network-wired"></i> Thread Usage</a></li>
+                                <li><a href="@Url.Content("~/Gen_Components/Component")" class="submenu-link"><i class="fas fa-cogs"></i> Components</a></li>
+                                <li><a href="@Url.Content("~/Gen_JobOrders/JobOrder")" class="submenu-link"><i class="fas fa-clipboard-list"></i> Job Orders</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Repeat similar structure for other menu items -->
+
+                        <li class="nav-item has-submenu">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-industry"></i>
+                                <span class="nav-text">Production</span>
+                                <i class="dropdown-icon fas fa-chevron-right"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-header">Production</li>
+                                <li><a href="@Url.Content("~/Gen_Products/Products")" class="submenu-link"><i class="fas fa-box"></i> Product</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-submenu">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-handshake"></i>
+                                <span class="nav-text">Services</span>
+                                <i class="dropdown-icon fas fa-chevron-right"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-header">Services Management</li>
+                                <li><a href="@Url.Content("~/Gen_TheServices/Service")" class="submenu-link"><i class="fa fa-tools me-2"></i> Services</a></li>
+                                <li><a href="@Url.Content("~/Gen_ServiceType/ServiceType")" class="submenu-link"><i class="fa fa-list-alt me-2"></i> Service Type</a></li>
+                                <li><a href="@Url.Content("~/Gen_ServiceRates/ServiceRates")" class="submenu-link"><i class="fa fa-dollar-sign me-2"></i> Service Rates</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-submenu">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <span class="nav-text">Customer</span>
+                                <i class="dropdown-icon fas fa-chevron-right"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-header">All Customer</li>
+                                <li><a href="@Url.Content("~/Hr_Customers/Hr_Customers")" class="submenu-link"><i class="fa fa-user me-2"></i> Customer</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-submenu">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-robot"></i>
+                                <span class="nav-text">Machines</span>
+                                <i class="dropdown-icon fas fa-chevron-right"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-header">All Machines</li>
+                                <li><a href="@Url.Content("~/Gen_MachineParameters/MachineParameters")" class="submenu-link"><i class="fa fa-robot me-2"></i> Machine Parameters</a></li>
+                                <li><a href="@Url.Content("~/Gen_Machines/Machines")" class="submenu-link"><i class="fa fa-robot me-2"></i> Machines</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    @*<div class="sidebar-footer">
+                        <div class="app-version">v2.1.0</div>
+                        <div class="app-status">
+                            <span class="status-indicator active"></span>
+                            <span>System Online</span>
+                        </div>
+                    </div>*@
+                </nav>
+            </aside>
+
+            <!-- Main Content Area -->
+            <section class="main-content">
+                <div class="content-header">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item active" aria-current="page">Current Page 
+                            <i class="fas fa-arrow-circle-right" style="color:dodgerblue"></i> 
+                            <strong style="font-size:25px;margin-left:20px"> @ViewBag.Title</strong>
+                          </li>
+                        </ol>
+                    </nav>
+                </div>
+
+                <div class="content-body">
+                    @RenderBody()
+                </div>
+            </section>
+        </div>
+
+        <!-- App Footer -->
+        <footer class="app-footer">
+            <div class="footer-content">
+                <span>&copy; @DateTime.Now.Year BBJAN BRANCH</span>
+                <span class="footer-divider">|</span>
+                <span>Made by: Zeeshan Abbas</span>
+                <span class="footer-divider">|</span>
+                <span class="system-time">
+                    <i class="fas fa-clock"></i>
+                    <span id="live-clock">@DateTime.Now.ToString("hh:mm:ss tt")</span>
+                </span>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Modern JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+
+    <script>
+        // Initialize all components
+        $(document).ready(function () {
+            // Initialize tooltips
+            $('[data-toggle="tooltip"]').tooltip();
+
+            // Initialize sidebar dropdowns
+            $('.has-submenu > .nav-link').on('click', function (e) {
+                e.preventDefault();
+                const $parent = $(this).parent();
+                $parent.toggleClass('open');
+                $parent.siblings('.has-submenu').removeClass('open');
+
+                // Rotate chevron icon
+                $(this).find('.dropdown-icon').toggleClass('rotate-90');
+            });
+
+            // Theme switcher
+            $('#theme-toggle').change(function () {
+                $('body').toggleClass('dark-mode light-mode');
+                localStorage.setItem('theme', $(this).is(':checked') ? 'dark' : 'light');
+            });
+
+            // Mobile menu toggle
+            $('.mobile-menu-btn').on('click', function () {
+                $('.app-sidebar').toggleClass('mobile-open');
+            });
+
+            // Update live clock
+            function updateClock() {
+                const now = new Date();
+                $('#live-clock').text(now.toLocaleTimeString());
+            }
+            setInterval(updateClock, 1000);
+        });
+    </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>

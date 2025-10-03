@@ -1,0 +1,220 @@
+﻿@model DataBaseLibrary.Gen_Machines
+
+@{
+    ViewBag.Title = "Machines";
+}
+<div class="container my-0" style="width:900px;">
+    @using (Html.BeginForm("SaveMachines", "Gen_Machines", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @*<h4>@(Model.Id > 0 ? "Edit Service" : "Add New Service")</h4>
+                <hr />*@
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+            <div class="row g-3">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.BrandId, "BrandId", htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.DropDownList("BrandId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.BrandId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                @*<div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ServiceId, "ServiceId", htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.DropDownList("ServiceId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ServiceId, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.HeadtoHead, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.HeadtoHead, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.HeadtoHead, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FrameHeight, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.FrameHeight, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FrameHeight, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.HeadsNum, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.HeadsNum, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.HeadsNum, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NeedlesNum, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.NeedlesNum, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NeedlesNum, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Serial_Number, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Serial_Number, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Serial_Number, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Calling_Number, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Calling_Number, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Calling_Number, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PurchaseDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.PurchaseDate, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PurchaseDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Warranty, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Warranty, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Warranty, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ServiceEnd, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.ServiceEnd, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ServiceEnd, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ServiceNext, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.ServiceNext, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ServiceNext, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                @*<div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.RecordTimeStamp, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.RecordTimeStamp, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.RecordTimeStamp, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.BranchId, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.BranchId, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.BranchId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Deleted, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.Deleted)
+                            @Html.ValidationMessageFor(model => model.Deleted, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Active, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.Active)
+                            @Html.ValidationMessageFor(model => model.Active, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+
+        <div class="form-group mt-3">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="@(Model.Id > 0 ? "Update" : "Create")" class="btn btn-primary"style="font-weight:600;" />
+                @if (Model.Id > 0)
+                {
+                    @Html.ActionLink("Cancel", "Machines", null, new { @class = "btn btn-secondary" })
+                }
+                else
+                {
+                    <input type="reset" value="Clear" class="btn btn-dark"style="font-weight:600;" />
+                }
+            </div>
+        </div>
+    }
+    <div class="table-responsive mt-3">
+        <table class="table table-bordered text-center">
+            <thead class="table-light">
+                <tr>
+                    <th>Code</th>
+                    @*<th>Service_Id</th>*@
+                    <th>HeadtoHead</th>
+                    <th>FrameHeight</th>
+                    <th>HeadsNum</th>
+                    <th>NeedlesNum</th>
+                    <th>Serial_Number</th>
+                    <th>Calling_Number</th>
+                    <th>PurchaseDate</th>
+                    <th>Warranty</th>
+                    <th>ServiceEnd</th>
+                    <th>ServiceNext</th>
+                    <th>Gen_Brands.Code</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewBag.MachinesList != null && ((IEnumerable<DataBaseLibrary.Gen_Machines>)ViewBag.MachinesList).Any())
+                {
+                    foreach (var item in (IEnumerable<DataBaseLibrary.Gen_Machines>)ViewBag.MachinesList)
+                    {
+                        <tr>
+                            <td>@item.Code</td>
+                            @*<td>@item.Gen_TheServices.Service_Name</td>*@
+                            <td>@item.HeadtoHead</td>
+                            <td>@item.FrameHeight</td>
+                            <td>@item.HeadsNum</td>
+                            <td>@item.NeedlesNum</td>
+                            <td>@item.Serial_Number</td>
+                            <td>@item.Calling_Number</td>
+                            <td>@item.PurchaseDate</td>
+                            <td>@item.Warranty</td>
+                            <td>@item.ServiceEnd</td>
+                            <td>@item.ServiceNext</td>
+                            <td>@item.Gen_Brands.Code</td>
+                            <td class="d-flex align-items-center" style="grid-gap:4px">
+                                @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-sm btn-outline-success me-2 shadow-sm fa fa-edit", title = "Edit" })
+                                @using (Html.BeginForm("DeleteMachines", "Gen_Machines", FormMethod.Post, new { onsubmit = "return confirm('Are you sure you want to delete ?');", style = "display:inline" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.Hidden("id", item.Id)
+                                    <button type="submit" class="btn btn-sm btn-outline-danger shadow-sm" title="Delete">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                }
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="18" class="text-muted">No Machines found.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

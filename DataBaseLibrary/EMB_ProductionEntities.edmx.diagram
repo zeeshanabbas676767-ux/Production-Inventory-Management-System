@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7df5989fcfa24cfe8871aa80f59a131a" Name="Diagram1">
+        <EntityTypeShape EntityType="EMB_ProductionModel.Gen_Brands" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMB_ProductionModel.Gen_Components" Width="1.5" PointX="8.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMB_ProductionModel.Gen_JobOrders" Width="1.5" PointX="0.75" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMB_ProductionModel.Gen_MachineParameters" Width="1.5" PointX="7.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMB_ProductionModel.Gen_Machines" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMB_ProductionModel.Gen_Products" Width="1.5" PointX="7.5" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMB_ProductionModel.Gen_ServiceRates" Width="1.5" PointX="8.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMB_ProductionModel.Gen_ServiceType" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMB_ProductionModel.Gen_TheServices" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMB_ProductionModel.Gen_ThreadUsage" Width="1.5" PointX="2.75" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMB_ProductionModel.Hr_Customers" Width="1.5" PointX="6" PointY="13.75" IsExpanded="true" />
+        <AssociationConnector Association="EMB_ProductionModel.FK_Gen_Machines_Gen_Brands" ManuallyRouted="false" />
+        <AssociationConnector Association="EMB_ProductionModel.FK_Gen_Machines_Gen_TheServices" ManuallyRouted="false" />
+        <AssociationConnector Association="EMB_ProductionModel.FK_Gen_ServiceRates_Gen_TheServices" ManuallyRouted="false" />
+        <AssociationConnector Association="EMB_ProductionModel.FK_Gen_ServiceRates_Hr_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="EMB_ProductionModel.FK_Gen_TheServices_Gen_ServiceType" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="EMB_ProductionModel.Gen_Categories" Width="1.5" PointX="5.25" PointY="0.75" />
+        <AssociationConnector Association="EMB_ProductionModel.FK_Gen_Categories_Gen_Brands" />
+        <EntityTypeShape EntityType="EMB_ProductionModel.Gen_Stock" Width="1.5" PointX="9.75" PointY="20.5" />
+        <AssociationConnector Association="EMB_ProductionModel.FK_Gen_Stock_Gen_Products" />
+        <EntityTypeShape EntityType="EMB_ProductionModel.Gen_Designs" Width="1.5" PointX="10.375" PointY="0.75" />
+        <AssociationConnector Association="EMB_ProductionModel.FK_Gen_Brands_Gen_Brands" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

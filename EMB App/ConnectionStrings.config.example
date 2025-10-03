@@ -1,0 +1,12 @@
+﻿<connectionStrings>
+	<!-- 
+    Copy this file to ConnectionStrings.config
+    and update it with your real connection string.
+  -->
+	<add name="EMB_ProductionEntities2"
+		 connectionString="metadata=res://*/EMB_ProductionEntities.csdl|res://*/EMB_ProductionEntities.ssdl|res://*/EMB_ProductionEntities.msl;
+       Initial Catalog=EMB_Production;Integrated Security=True;
+       MultipleActiveResultSets=True;"
+		 providerName="System.Data.SqlClient" />
+</connectionStrings>
+

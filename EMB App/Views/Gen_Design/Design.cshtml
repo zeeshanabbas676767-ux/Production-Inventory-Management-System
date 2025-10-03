@@ -1,0 +1,422 @@
+﻿@model DataBaseLibrary.Gen_Designs
+
+@{
+    ViewBag.Title = "Design";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container my-0" style="width:900px">
+    @using (Html.BeginForm("SaveDesign", "Gen_Design", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Seq_Id)
+        @Html.HiddenFor(model => model.Seq_Usage)
+        @Html.HiddenFor(model => model.T_Id)
+        @Html.HiddenFor(model => model.T_Usage)
+        @Html.HiddenFor(model => model.MD_Id)
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+            <div class="row g-3">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DCode, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.DCode, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DCode, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.EntryType, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.EntryType, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.EntryType, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.DNo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Fabric, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Fabric, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Fabric, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Head_Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Head_Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Head_Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Req_Repeats, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Req_Repeats, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Req_Repeats, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Head, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Head, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Head, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Stitches, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Stitches, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Stitches, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Seq, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Seq, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Seq, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.W_Head, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.W_Head, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.W_Head, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Colors, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Colors, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Colors, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Remarks, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Remarks, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Extra_Service, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Extra_Service, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Extra_Service, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Component_Code)
+                        @Html.EditorFor(model => model.Component_Code, new { htmlAttributes = new { @class = "form-control", id = "Component_Code" } })
+                    </div>
+                </div>
+                @*<div class="col-md-2">
+                        <div class="form-group">
+                            <div class="checkbox mt-0" style="transform: scale(1.2); margin-left: 20px; font-size: 10px">
+                                @Html.LabelFor(model => model.Active, htmlAttributes: new { @class = "control-label", style = "font-size:14px" })
+                                @Html.EditorFor(model => model.Active, new { htmlAttributes = new { style = "width:100px; height: 25px;font-size:13px" } })
+                                @Html.ValidationMessageFor(model => model.Active, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <div class="checkbox mt-0" style="transform: scale(1.2); margin-left: 20px; font-size: 10px">
+                                @Html.LabelFor(model => model.Deleted, htmlAttributes: new { @class = "control-label", style = "font-size:14px" })
+                                @Html.EditorFor(model => model.Deleted, new { htmlAttributes = new { style = "width:100px; height: 25px;font-size:13px" } })
+                                @Html.ValidationMessageFor(model => model.Deleted, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>*@
+                @*<div class="col-md-2">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.BranchId, htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.EditorFor(model => model.BranchId, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.BranchId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+                <div class="col-md-2">
+                    <label>Select Collection</label>
+                    <div class="form-group">
+                        <div class="dropdown">
+                            <button class="btn btn-light"
+                                    type="button"
+                                    id="collectionDropdown"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                    style="border: 1.5px solid dodgerblue;width:140px;border-radius: 8px; color: #333; padding: 7px 25px; transition: all 0.3s ease;">
+                                Select Collections
+                            </button>
+                            <ul class="dropdown-menu shadow-lg p-3"
+                                aria-labelledby="collectionDropdown"
+                                style="max-width: 330px; width: 200px; max-height: 230px; overflow-y: auto; border-radius: 8px;">
+                                @if (ViewBag.Collections != null)
+                                {
+                                    var selectedCollections = ViewBag.SelectedCollections as IEnumerable<string>;
+                                    foreach (var item in ViewBag.Collections)
+                                    {
+                                        bool isSelected = selectedCollections != null && Enumerable.Contains(selectedCollections, item.Value);
+                                        <li class="mb-1">
+                                            <div class="form-check d-flex align-items-center p-2 rounded-3 hover-bg">
+                                                <input class="form-check-input me-2"
+                                                       type="checkbox"
+                                                       name="SelectedCollections"
+                                                       value="@item.Value"
+                                                       id="collection-@item.Value"
+                                                       @(isSelected ? "checked" : "")
+                                                       style="width: 18px; height: 18px; cursor: pointer;">
+                                                <label class="form-check-label w-100"
+                                                       for="collection-@item.Value"
+                                                       style="cursor: pointer; user-select: none;">
+                                                    @item.Text
+                                                </label>
+                                            </div>
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.CollectionName, "", new { @class = "text-danger small mt-1" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Customer_Id, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Customer_Id, new { htmlAttributes = new { @class = "form-control", style = "border:solid 1.5px dodgerblue" } })
+                        @Html.ValidationMessageFor(model => model.Customer_Id, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-8" style="margin-top:-30px;overflow:auto;display:none;" id="Collection">
+                    <div class="row mt-3" style="width:800px; overflow: auto;max-width:900px;height:100px">
+                        <div id="threadBoxes" class="thread-box-container">
+                            @if (ViewBag.ThreadBoxes != null)
+                            {
+                                foreach (var box in ViewBag.ThreadBoxes)
+                                {
+                                    <div class="thread-usage-box">
+                                        <span class="thread-display">Thread: @box.ThreadId</span>
+                                        <span class="thread-display">Usage: @box.Usage</span>
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <div id="seqBoxes" class="thread-box-container">
+                            @if (ViewBag.SeqBoxes != null)
+                            {
+                                foreach (var box in ViewBag.SeqBoxes)
+                                {
+                                    <div class="thread-usage-box">
+                                        <span class="thread-display">Sequence: @box.ThreadId</span>
+                                        <span class="thread-display">Usage: @box.Usage</span>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group mt-3">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="@(Model.Id > 0 ? "Update" : "Create")" class="btn btn-primary" style="font-weight:600;" />
+                @if (Model.Id > 0)
+                {
+                    @Html.ActionLink("Cancel", "Design", null, new { @class = "btn btn-secondary" })
+                }
+                else
+                {
+                    <input type="reset" value="Clear" class="btn btn-dark" style="font-weight:600;" />
+                }
+            </div>
+        </div>
+    }
+
+    <div class="table-responsive mt-3">
+        <table class="table table-bordered text-center">
+            <thead class="table-light">
+                <tr>
+                    <th>Component_Code</th>
+                    <th>DCode</th>
+                    <th>Customer_Id</th>
+                    <th>EntryType</th>
+                    <th>Fabric</th>
+                    <th>Remarks</th>
+                    <th>Extra_Service</th>
+                    <th>Code</th>
+                    <th>DNo</th>
+                    <th>Head_Limit</th>
+                    <th>Req_Repeats</th>
+                    <th>Head</th>
+                    <th>Stitches</th>
+                    <th>W_Head</th>
+                    <th>Seq</th>
+                    <th>Seq_Id</th>
+                    <th>T_Id</th>
+                    <th>T_Usage</th>
+                    <th>Seq_Usage</th>
+                    <th>Collection_Name</th>
+                    <th>Status</th>
+                    <th>Colors</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewBag.DesignList != null && ((IEnumerable<DataBaseLibrary.Gen_Designs>)ViewBag.DesignList).Any())
+                {
+                    var validCodes = ViewBag.ValidCodes as List<int?> ?? new List<int?>();
+                    foreach (var item in (IEnumerable<DataBaseLibrary.Gen_Designs>)ViewBag.DesignList)
+                    {
+                        var status = validCodes.Contains(item.Component_Code) ? "Active" : "Dis Active";
+                        var statusClass = status == "Active" ? "text-success" : "text-danger";
+                        <tr>
+                            <td>@item.Component_Code</td>
+                            <td>@item.DCode</td>
+                            <td>@item.Customer_Id</td>
+                            <td>@item.EntryType</td>
+                            <td>@item.Fabric</td>
+                            <td>@item.Remarks</td>
+                            <td>@item.Extra_Service</td>
+                            <td>@item.Code</td>
+                            <td>@item.DNo</td>
+                            <td>@item.Head_Email</td>
+                            <td>@item.Req_Repeats</td>
+                            <td>@item.Head</td>
+                            <td>@item.Stitches</td>
+                            <td>@item.W_Head</td>
+                            <td>@item.Seq</td>
+                            <td>@item.Seq_Id</td>
+                            <td>@item.T_Id</td>
+                            <td>@item.T_Usage</td>
+                            <td>@item.Seq_Usage</td>
+                            <td>
+                                @{
+                                    var collectionNames = item.CollectionName?.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                                    if (collectionNames != null && collectionNames.Any())
+                                    {
+                                        var allCollections = ViewBag.Collections as IEnumerable<SelectListItem>;
+                                        foreach (var coll in collectionNames)
+                                        {
+                                            var collection = allCollections?.FirstOrDefault(c => c.Value == coll);
+                                            <span class="badge bg-primary">@(collection?.Text ?? coll)</span>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">None</span>
+                                    }
+                                }
+                            </td>
+                            <td>
+                                @if (item.Status.HasValue && item.Status.Value)
+                                {
+                                    <span class="text-success"><strong>Active</strong></span>
+                                }
+                                else
+                                {
+                                    <span class="text-danger"><strong>Not_Active</strong></span>
+                                }
+                            </td>
+                            <td>@item.Colors</td>
+                            <td>@item.Price</td>
+                            <td class="d-flex align-items-center" style="grid-gap:4px">
+                                @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-sm btn-outline-success me-2 shadow-sm fa fa-edit", title = "Edit" })
+                                @using (Html.BeginForm("DeleteDesign", "Gen_Design", FormMethod.Post, new { onsubmit = "return confirm('Are you sure you to delete ?');", style = "display:inline" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.Hidden("id", item.Id)
+                                    <button type="submit" class="btn btn-sm btn-outline-danger shadow-sm" title="Delete">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                }
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="25" class="text-muted">No Designs found.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.select2-multiple').select2({
+            theme: 'bootstrap-5',
+            placeholder: 'Select Collections',
+            closeOnSelect: false,
+            width: '100%'
+        });
+    });
+</script>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+        // This handles the component code change to fetch thread usage
+        $('#Component_Code').on('input', function() {
+            var code = $(this).val().trim();
+            if (code.length >= 3) {
+                fetchThreadUsage(code);
+            }
+            $('#Collection').show();
+        });
+
+        function fetchThreadUsage(code) {
+            $.ajax({
+                url: '@Url.Action("GetThreadUsage", "Gen_Design")',
+                type: 'GET',
+                data: { code: code },
+                success: function(response) {
+                    if (response.success) {
+                        updateThreadBoxes(response.threadBoxes, response.seqBoxes);
+                    }
+                }
+            });
+        }
+
+        function updateThreadBoxes(threadBoxes, seqBoxes) {
+            // Clear existing boxes
+            $('#threadBoxes, #seqBoxes').empty();
+
+            // Add thread boxes
+            threadBoxes.forEach(function(item) {
+                $('#threadBoxes').append(
+                    '<div class="badge bg-dark">' +
+                    '<span class="thread-display"><strong style="color:dodgerblue">Thread Id :</strong> ' + item.ThreadId + '</span>' +' '+
+                    '<span class="thread-display"><strong style="color:dodgerblue">Thread Usage :</strong> ' + item.Usage + '</span>' +
+                    '</div>'
+                );
+            });
+
+            // Add sequence boxes
+            seqBoxes.forEach(function(item) {
+                $('#seqBoxes').append(
+                    '<div class="badge bg-dark">' +
+                    '<span class="thread-display"><strong style="color:dodgerblue">Sequence Id :</strong> ' + item.ThreadId + '</span>' +' '+
+                    '<span class="thread-display"><strong style="color:dodgerblue">Sequence Usage :</strong> ' + item.Usage + '</span>' +
+                    '</div>'
+                );
+            });
+        }
+    });
+    </script>
+}

@@ -1,0 +1,1328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EMB_ProductionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Gen_Brands">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="BrandName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="BranchId" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="RecordTimeStamp" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Gen_Categories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BrandId" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="MeasureType" Type="nvarchar" MaxLength="50" />
+          <Property Name="MeasureValue" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Quantity" Type="nvarchar" MaxLength="50" />
+          <Property Name="Length" Type="nvarchar" MaxLength="50" />
+          <Property Name="Weight" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Deleted" Type="bit" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="RecordTimeStamp" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="Tax" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Category_Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Gen_Components">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="int" />
+          <Property Name="D_Code" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="HeadToHead" Type="int" />
+          <Property Name="Stitch" Type="int" />
+          <Property Name="Tilla" Type="int" />
+          <Property Name="Seq_A" Type="int" />
+          <Property Name="Seq_B" Type="int" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Deleted" Type="bit" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Gen_Designs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Customer_Id" Type="int" />
+          <Property Name="EntryType" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fabric" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="50" />
+          <Property Name="Extra_Service" Type="nvarchar" MaxLength="50" />
+          <Property Name="Code" Type="int" />
+          <Property Name="DNo" Type="int" />
+          <Property Name="Head_Email" Type="int" />
+          <Property Name="Req_Repeats" Type="int" />
+          <Property Name="Head" Type="int" />
+          <Property Name="Stitches" Type="int" />
+          <Property Name="Seq" Type="int" />
+          <Property Name="W_Head" Type="int" />
+          <Property Name="Colors" Type="int" />
+          <Property Name="Price" Type="int" />
+          <Property Name="Component_Code" Type="int" />
+          <Property Name="DCode" Type="int" />
+          <Property Name="CollectionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="Deleted" Type="bit" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="date" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Gen_JobOrders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="int" />
+          <Property Name="CompId" Type="int" />
+          <Property Name="ReqRepeats" Type="int" />
+          <Property Name="ReqHead" Type="int" />
+          <Property Name="Panni" Type="int" />
+          <Property Name="Solving" Type="int" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Deleted" Type="bit" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Gen_MachineParameters">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HeadToHead" Type="nvarchar" MaxLength="50" />
+          <Property Name="FrameHeight" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gen_Machines">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="BrandId" Type="int" />
+          <Property Name="ServiceId" Type="int" />
+          <Property Name="HeadtoHead" Type="nvarchar" MaxLength="50" />
+          <Property Name="FrameHeight" Type="nvarchar" MaxLength="50" />
+          <Property Name="HeadsNum" Type="int" />
+          <Property Name="NeedlesNum" Type="int" />
+          <Property Name="Serial Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="Calling Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="PurchaseDate" Type="datetime" />
+          <Property Name="Warranty" Type="int" />
+          <Property Name="ServiceEnd" Type="date" />
+          <Property Name="ServiceNext" Type="date" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="RecordTimeStamp" Type="datetime" Nullable="false" />
+          <Property Name="BranchId" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gen_Products">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CatId" Type="int" />
+          <Property Name="Prod_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Prod_Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="Prod_Description" Type="nvarchar(max)" />
+          <Property Name="Prod_Qty" Type="nvarchar" MaxLength="50" />
+          <Property Name="Prod_Length" Type="nvarchar" MaxLength="50" />
+          <Property Name="Prod_Weight" Type="nvarchar" MaxLength="50" />
+          <Property Name="Prod_DateIn" Type="date" />
+          <Property Name="Prod_DateOut" Type="date" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="BranchId" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="RecordTimeStamp" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="Category_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Brand_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tax" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Price_Method" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Gen_ServiceRates">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Customer_Id" Type="int" />
+          <Property Name="Service_Id" Type="int" />
+          <Property Name="Charge_Fector" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="50" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Deleted" Type="bit" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="date" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="date" />
+          <Property Name="RecordTimeStamp" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Gen_ServiceType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Service_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Service_TypeDescription" Type="text" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="RecordTimeStamp" Type="datetime" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Deleted" Type="bit" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="date" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Gen_Stock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProdId" Type="int" />
+          <Property Name="InStock" Type="bit" />
+          <Property Name="New" Type="bit" />
+          <Property Name="In" Type="bit" />
+          <Property Name="Out" Type="bit" />
+          <Property Name="StockDescription" Type="nvarchar(max)" />
+          <Property Name="Rack" Type="nvarchar" MaxLength="50" />
+          <Property Name="Shelf" Type="nvarchar" MaxLength="50" />
+          <Property Name="MeasureValue" Type="nvarchar" MaxLength="50" />
+          <Property Name="TotalStock" Type="nvarchar" MaxLength="50" />
+          <Property Name="TotalPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="BillNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="GatePass" Type="nvarchar" MaxLength="50" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="Deleted" Type="bit" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="RecordTimeStamp" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="StockStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Condition" Type="nvarchar" MaxLength="50" />
+          <Property Name="BrandName" Type="nvarchar" MaxLength="50" />
+          <Property Name="VendorName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Identity" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Quantity" Type="int" />
+        </EntityType>
+        <EntityType Name="Gen_TheServices">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Service_Type" Type="int" />
+          <Property Name="Service_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Service_RateCharge" Type="int" />
+          <Property Name="Machine_Device" Type="int" />
+          <Property Name="Max_Range" Type="nchar" MaxLength="10" />
+          <Property Name="Max_Charges" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Min_Charges" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Field1" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Field2" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="RecordTimeStamp" Type="datetime" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Deleted" Type="bit" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="date" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Gen_ThreadUsage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="int" />
+          <Property Name="CompId" Type="int" />
+          <Property Name="ThreadId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Usage" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Deleted" Type="bit" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Hr_Customers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Customer_Id" Type="text" />
+          <Property Name="Customer_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="NTN_Number" Type="text" />
+          <Property Name="STRN_Number" Type="text" />
+          <Property Name="Customer_Address" Type="text" />
+          <Property Name="Customer_City" Type="nchar" MaxLength="10" />
+          <Property Name="Customer_Country" Type="nchar" MaxLength="10" />
+          <Property Name="Customer_Email" Type="text" />
+          <Property Name="Customer_Email2" Type="text" />
+          <Property Name="Customer_Phone" Type="text" />
+          <Property Name="Customer_Phone2" Type="text" />
+          <Property Name="Customer_Mobile" Type="text" />
+          <Property Name="Customer_Fax" Type="text" />
+          <Property Name="Customer_Credit_Limit_CAP" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Customer_Invoice_Period" Type="int" />
+          <Property Name="BranchId" Type="int" Nullable="false" />
+          <Property Name="RecordTimeStamp" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="date" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedDate" Type="date" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Gen_Brands_Gen_Brands">
+          <End Role="Gen_Brands" Type="Self.Gen_Brands" Multiplicity="1" />
+          <End Role="Gen_Brands1" Type="Self.Gen_Brands" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Gen_Brands">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gen_Brands1">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gen_Categories_Gen_Brands">
+          <End Role="Gen_Brands" Type="Self.Gen_Brands" Multiplicity="0..1" />
+          <End Role="Gen_Categories" Type="Self.Gen_Categories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gen_Brands">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gen_Categories">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gen_Machines_Gen_Brands">
+          <End Role="Gen_Brands" Type="Self.Gen_Brands" Multiplicity="0..1" />
+          <End Role="Gen_Machines" Type="Self.Gen_Machines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gen_Brands">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gen_Machines">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gen_Machines_Gen_TheServices">
+          <End Role="Gen_TheServices" Type="Self.Gen_TheServices" Multiplicity="0..1" />
+          <End Role="Gen_Machines" Type="Self.Gen_Machines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gen_TheServices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gen_Machines">
+              <PropertyRef Name="ServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gen_ServiceRates_Gen_TheServices">
+          <End Role="Gen_TheServices" Type="Self.Gen_TheServices" Multiplicity="0..1" />
+          <End Role="Gen_ServiceRates" Type="Self.Gen_ServiceRates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gen_TheServices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gen_ServiceRates">
+              <PropertyRef Name="Service_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gen_ServiceRates_Hr_Customers">
+          <End Role="Hr_Customers" Type="Self.Hr_Customers" Multiplicity="0..1" />
+          <End Role="Gen_ServiceRates" Type="Self.Gen_ServiceRates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hr_Customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gen_ServiceRates">
+              <PropertyRef Name="Customer_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gen_Stock_Gen_Products">
+          <End Role="Gen_Products" Type="Self.Gen_Products" Multiplicity="0..1" />
+          <End Role="Gen_Stock" Type="Self.Gen_Stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gen_Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gen_Stock">
+              <PropertyRef Name="ProdId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gen_TheServices_Gen_ServiceType">
+          <End Role="Gen_ServiceType" Type="Self.Gen_ServiceType" Multiplicity="0..1" />
+          <End Role="Gen_TheServices" Type="Self.Gen_TheServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gen_ServiceType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gen_TheServices">
+              <PropertyRef Name="Service_Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EMB_ProductionModelStoreContainer">
+          <EntitySet Name="Gen_Brands" EntityType="Self.Gen_Brands" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gen_Categories" EntityType="Self.Gen_Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gen_Components" EntityType="Self.Gen_Components" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gen_Designs" EntityType="Self.Gen_Designs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gen_JobOrders" EntityType="Self.Gen_JobOrders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gen_MachineParameters" EntityType="Self.Gen_MachineParameters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gen_Machines" EntityType="Self.Gen_Machines" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gen_Products" EntityType="Self.Gen_Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gen_ServiceRates" EntityType="Self.Gen_ServiceRates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gen_ServiceType" EntityType="Self.Gen_ServiceType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gen_Stock" EntityType="Self.Gen_Stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gen_TheServices" EntityType="Self.Gen_TheServices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gen_ThreadUsage" EntityType="Self.Gen_ThreadUsage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hr_Customers" EntityType="Self.Hr_Customers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Gen_Brands_Gen_Brands" Association="Self.FK_Gen_Brands_Gen_Brands">
+            <End Role="Gen_Brands" EntitySet="Gen_Brands" />
+            <End Role="Gen_Brands1" EntitySet="Gen_Brands" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gen_Categories_Gen_Brands" Association="Self.FK_Gen_Categories_Gen_Brands">
+            <End Role="Gen_Brands" EntitySet="Gen_Brands" />
+            <End Role="Gen_Categories" EntitySet="Gen_Categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gen_Machines_Gen_Brands" Association="Self.FK_Gen_Machines_Gen_Brands">
+            <End Role="Gen_Brands" EntitySet="Gen_Brands" />
+            <End Role="Gen_Machines" EntitySet="Gen_Machines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gen_Machines_Gen_TheServices" Association="Self.FK_Gen_Machines_Gen_TheServices">
+            <End Role="Gen_TheServices" EntitySet="Gen_TheServices" />
+            <End Role="Gen_Machines" EntitySet="Gen_Machines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gen_ServiceRates_Gen_TheServices" Association="Self.FK_Gen_ServiceRates_Gen_TheServices">
+            <End Role="Gen_TheServices" EntitySet="Gen_TheServices" />
+            <End Role="Gen_ServiceRates" EntitySet="Gen_ServiceRates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gen_ServiceRates_Hr_Customers" Association="Self.FK_Gen_ServiceRates_Hr_Customers">
+            <End Role="Hr_Customers" EntitySet="Hr_Customers" />
+            <End Role="Gen_ServiceRates" EntitySet="Gen_ServiceRates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gen_Stock_Gen_Products" Association="Self.FK_Gen_Stock_Gen_Products">
+            <End Role="Gen_Products" EntitySet="Gen_Products" />
+            <End Role="Gen_Stock" EntitySet="Gen_Stock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gen_TheServices_Gen_ServiceType" Association="Self.FK_Gen_TheServices_Gen_ServiceType">
+            <End Role="Gen_ServiceType" EntitySet="Gen_ServiceType" />
+            <End Role="Gen_TheServices" EntitySet="Gen_TheServices" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EMB_ProductionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Gen_Brands">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BrandName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BranchId" Type="Int32" Nullable="false" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="RecordTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" Nullable="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Gen_Machines" Relationship="Self.FK_Gen_Machines_Gen_Brands" FromRole="Gen_Brands" ToRole="Gen_Machines" />
+          <NavigationProperty Name="Gen_Categories" Relationship="EMB_ProductionModel.FK_Gen_Categories_Gen_Brands" FromRole="Gen_Brands" ToRole="Gen_Categories" />
+          <NavigationProperty Name="Gen_Brands1" Relationship="EMB_ProductionModel.FK_Gen_Brands_Gen_Brands" FromRole="Gen_Brands" ToRole="Gen_Brands1" />
+          <NavigationProperty Name="Gen_Brands2" Relationship="EMB_ProductionModel.FK_Gen_Brands_Gen_Brands" FromRole="Gen_Brands1" ToRole="Gen_Brands" />
+        </EntityType>
+        <EntityType Name="Gen_Components">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="Int32" />
+          <Property Name="D_Code" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HeadToHead" Type="Int32" />
+          <Property Name="Stitch" Type="Int32" />
+          <Property Name="Tilla" Type="Int32" />
+          <Property Name="Seq_A" Type="Int32" />
+          <Property Name="Seq_B" Type="Int32" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Deleted" Type="Boolean" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Gen_JobOrders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="Int32" />
+          <Property Name="CompId" Type="Int32" />
+          <Property Name="ReqRepeats" Type="Int32" />
+          <Property Name="ReqHead" Type="Int32" />
+          <Property Name="Panni" Type="Int32" />
+          <Property Name="Solving" Type="Int32" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Deleted" Type="Boolean" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Gen_MachineParameters">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HeadToHead" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FrameHeight" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" Nullable="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Gen_Machines">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BrandId" Type="Int32" />
+          <Property Name="ServiceId" Type="Int32" />
+          <Property Name="HeadtoHead" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FrameHeight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HeadsNum" Type="Int32" />
+          <Property Name="NeedlesNum" Type="Int32" />
+          <Property Name="Serial_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Calling_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PurchaseDate" Type="DateTime" Precision="3" />
+          <Property Name="Warranty" Type="Int32" />
+          <Property Name="ServiceEnd" Type="DateTime" Precision="0" />
+          <Property Name="ServiceNext" Type="DateTime" Precision="0" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="RecordTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BranchId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" Nullable="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Gen_Brands" Relationship="Self.FK_Gen_Machines_Gen_Brands" FromRole="Gen_Machines" ToRole="Gen_Brands" />
+          <NavigationProperty Name="Gen_TheServices" Relationship="Self.FK_Gen_Machines_Gen_TheServices" FromRole="Gen_Machines" ToRole="Gen_TheServices" />
+        </EntityType>
+        <EntityType Name="Gen_Products">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CatId" Type="Int32" />
+          <Property Name="Prod_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Prod_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Prod_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Prod_Qty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Prod_Length" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Prod_Weight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Prod_DateIn" Type="DateTime" Precision="0" />
+          <Property Name="Prod_DateOut" Type="DateTime" Precision="0" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BranchId" Type="Int32" Nullable="false" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="RecordTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" Nullable="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Category_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Brand_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tax" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Price_Method" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Gen_Stock" Relationship="EMB_ProductionModel.FK_Gen_Stock_Gen_Products" FromRole="Gen_Products" ToRole="Gen_Stock" />
+        </EntityType>
+        <EntityType Name="Gen_ServiceRates">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Customer_Id" Type="Int32" />
+          <Property Name="Service_Id" Type="Int32" />
+          <Property Name="Charge_Fector" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Deleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+          <Property Name="RecordTimeStamp" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Gen_TheServices" Relationship="Self.FK_Gen_ServiceRates_Gen_TheServices" FromRole="Gen_ServiceRates" ToRole="Gen_TheServices" />
+          <NavigationProperty Name="Hr_Customers" Relationship="Self.FK_Gen_ServiceRates_Hr_Customers" FromRole="Gen_ServiceRates" ToRole="Hr_Customers" />
+        </EntityType>
+        <EntityType Name="Gen_ServiceType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Service_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Service_TypeDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="RecordTimeStamp" Type="DateTime" Precision="3" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Deleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Gen_TheServices" Relationship="Self.FK_Gen_TheServices_Gen_ServiceType" FromRole="Gen_ServiceType" ToRole="Gen_TheServices" />
+        </EntityType>
+        <EntityType Name="Gen_TheServices">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Service_Type" Type="Int32" />
+          <Property Name="Service_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Service_RateCharge" Type="Int32" />
+          <Property Name="Machine_Device" Type="Int32" />
+          <Property Name="Max_Range" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Max_Charges" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Min_Charges" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Field1" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Field2" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="RecordTimeStamp" Type="DateTime" Precision="3" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Deleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Gen_Machines" Relationship="Self.FK_Gen_Machines_Gen_TheServices" FromRole="Gen_TheServices" ToRole="Gen_Machines" />
+          <NavigationProperty Name="Gen_ServiceRates" Relationship="Self.FK_Gen_ServiceRates_Gen_TheServices" FromRole="Gen_TheServices" ToRole="Gen_ServiceRates" />
+          <NavigationProperty Name="Gen_ServiceType" Relationship="Self.FK_Gen_TheServices_Gen_ServiceType" FromRole="Gen_TheServices" ToRole="Gen_ServiceType" />
+        </EntityType>
+        <EntityType Name="Gen_ThreadUsage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="Int32" />
+          <Property Name="CompId" Type="Int32" />
+          <Property Name="ThreadId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Usage" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Deleted" Type="Boolean" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Hr_Customers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Customer_Id" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Customer_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NTN_Number" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="STRN_Number" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Customer_Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Customer_City" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Customer_Country" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Customer_Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Customer_Email2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Customer_Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Customer_Phone2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Customer_Mobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Customer_Fax" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Customer_Credit_Limit_CAP" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Customer_Invoice_Period" Type="Int32" />
+          <Property Name="BranchId" Type="Int32" Nullable="false" />
+          <Property Name="RecordTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UpdatedBy" Type="Int32" Nullable="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Gen_ServiceRates" Relationship="Self.FK_Gen_ServiceRates_Hr_Customers" FromRole="Hr_Customers" ToRole="Gen_ServiceRates" />
+        </EntityType>
+        <Association Name="FK_Gen_Machines_Gen_Brands">
+          <End Role="Gen_Brands" Type="Self.Gen_Brands" Multiplicity="0..1" />
+          <End Role="Gen_Machines" Type="Self.Gen_Machines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gen_Brands">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gen_Machines">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gen_Machines_Gen_TheServices">
+          <End Role="Gen_TheServices" Type="Self.Gen_TheServices" Multiplicity="0..1" />
+          <End Role="Gen_Machines" Type="Self.Gen_Machines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gen_TheServices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gen_Machines">
+              <PropertyRef Name="ServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gen_ServiceRates_Gen_TheServices">
+          <End Role="Gen_TheServices" Type="Self.Gen_TheServices" Multiplicity="0..1" />
+          <End Role="Gen_ServiceRates" Type="Self.Gen_ServiceRates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gen_TheServices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gen_ServiceRates">
+              <PropertyRef Name="Service_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gen_ServiceRates_Hr_Customers">
+          <End Role="Hr_Customers" Type="Self.Hr_Customers" Multiplicity="0..1" />
+          <End Role="Gen_ServiceRates" Type="Self.Gen_ServiceRates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hr_Customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gen_ServiceRates">
+              <PropertyRef Name="Customer_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gen_TheServices_Gen_ServiceType">
+          <End Role="Gen_ServiceType" Type="Self.Gen_ServiceType" Multiplicity="0..1" />
+          <End Role="Gen_TheServices" Type="Self.Gen_TheServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gen_ServiceType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gen_TheServices">
+              <PropertyRef Name="Service_Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EMB_ProductionEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Gen_Brands" EntityType="Self.Gen_Brands" />
+          <EntitySet Name="Gen_Components" EntityType="Self.Gen_Components" />
+          <EntitySet Name="Gen_JobOrders" EntityType="Self.Gen_JobOrders" />
+          <EntitySet Name="Gen_MachineParameters" EntityType="Self.Gen_MachineParameters" />
+          <EntitySet Name="Gen_Machines" EntityType="Self.Gen_Machines" />
+          <EntitySet Name="Gen_Products" EntityType="Self.Gen_Products" />
+          <EntitySet Name="Gen_ServiceRates" EntityType="Self.Gen_ServiceRates" />
+          <EntitySet Name="Gen_ServiceType" EntityType="Self.Gen_ServiceType" />
+          <EntitySet Name="Gen_TheServices" EntityType="Self.Gen_TheServices" />
+          <EntitySet Name="Gen_ThreadUsage" EntityType="Self.Gen_ThreadUsage" />
+          <EntitySet Name="Hr_Customers" EntityType="Self.Hr_Customers" />
+          <AssociationSet Name="FK_Gen_Machines_Gen_Brands" Association="Self.FK_Gen_Machines_Gen_Brands">
+            <End Role="Gen_Brands" EntitySet="Gen_Brands" />
+            <End Role="Gen_Machines" EntitySet="Gen_Machines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gen_Machines_Gen_TheServices" Association="Self.FK_Gen_Machines_Gen_TheServices">
+            <End Role="Gen_TheServices" EntitySet="Gen_TheServices" />
+            <End Role="Gen_Machines" EntitySet="Gen_Machines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gen_ServiceRates_Gen_TheServices" Association="Self.FK_Gen_ServiceRates_Gen_TheServices">
+            <End Role="Gen_TheServices" EntitySet="Gen_TheServices" />
+            <End Role="Gen_ServiceRates" EntitySet="Gen_ServiceRates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gen_ServiceRates_Hr_Customers" Association="Self.FK_Gen_ServiceRates_Hr_Customers">
+            <End Role="Hr_Customers" EntitySet="Hr_Customers" />
+            <End Role="Gen_ServiceRates" EntitySet="Gen_ServiceRates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gen_TheServices_Gen_ServiceType" Association="Self.FK_Gen_TheServices_Gen_ServiceType">
+            <End Role="Gen_ServiceType" EntitySet="Gen_ServiceType" />
+            <End Role="Gen_TheServices" EntitySet="Gen_TheServices" />
+          </AssociationSet>
+          <EntitySet Name="Gen_Categories" EntityType="EMB_ProductionModel.Gen_Categories" />
+          <AssociationSet Name="FK_Gen_Categories_Gen_Brands" Association="EMB_ProductionModel.FK_Gen_Categories_Gen_Brands">
+            <End Role="Gen_Brands" EntitySet="Gen_Brands" />
+            <End Role="Gen_Categories" EntitySet="Gen_Categories" />
+          </AssociationSet>
+          <EntitySet Name="Gen_Stock" EntityType="EMB_ProductionModel.Gen_Stock" />
+          <AssociationSet Name="FK_Gen_Stock_Gen_Products" Association="EMB_ProductionModel.FK_Gen_Stock_Gen_Products">
+            <End Role="Gen_Products" EntitySet="Gen_Products" />
+            <End Role="Gen_Stock" EntitySet="Gen_Stock" />
+          </AssociationSet>
+          <EntitySet Name="Gen_Designs" EntityType="EMB_ProductionModel.Gen_Designs" />
+          <AssociationSet Name="FK_Gen_Brands_Gen_Brands" Association="EMB_ProductionModel.FK_Gen_Brands_Gen_Brands">
+            <End Role="Gen_Brands" EntitySet="Gen_Brands" />
+            <End Role="Gen_Brands1" EntitySet="Gen_Brands" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Gen_Categories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BrandId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MeasureType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MeasureValue" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Quantity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Length" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Weight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Deleted" Type="Boolean" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="RecordTimeStamp" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="Tax" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Category_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Gen_Brands" Relationship="EMB_ProductionModel.FK_Gen_Categories_Gen_Brands" FromRole="Gen_Categories" ToRole="Gen_Brands" />
+        </EntityType>
+        <Association Name="FK_Gen_Categories_Gen_Brands">
+          <End Type="EMB_ProductionModel.Gen_Brands" Role="Gen_Brands" Multiplicity="0..1" />
+          <End Type="EMB_ProductionModel.Gen_Categories" Role="Gen_Categories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gen_Brands">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gen_Categories">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Gen_Stock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProdId" Type="Int32" />
+          <Property Name="InStock" Type="Boolean" />
+          <Property Name="New" Type="Boolean" />
+          <Property Name="In" Type="Boolean" />
+          <Property Name="Out" Type="Boolean" />
+          <Property Name="StockDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Rack" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Shelf" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MeasureValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TotalStock" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BillNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GatePass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="Deleted" Type="Boolean" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="RecordTimeStamp" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="StockStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Condition" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BrandName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VendorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Identity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Quantity" Type="Int32" />
+          <NavigationProperty Name="Gen_Products" Relationship="EMB_ProductionModel.FK_Gen_Stock_Gen_Products" FromRole="Gen_Stock" ToRole="Gen_Products" />
+        </EntityType>
+        <Association Name="FK_Gen_Stock_Gen_Products">
+          <End Type="EMB_ProductionModel.Gen_Products" Role="Gen_Products" Multiplicity="0..1" />
+          <End Type="EMB_ProductionModel.Gen_Stock" Role="Gen_Stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gen_Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gen_Stock">
+              <PropertyRef Name="ProdId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Gen_Designs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Customer_Id" Type="Int32" />
+          <Property Name="EntryType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fabric" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Extra_Service" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="Int32" />
+          <Property Name="DNo" Type="Int32" />
+          <Property Name="Head_Email" Type="Int32" />
+          <Property Name="Req_Repeats" Type="Int32" />
+          <Property Name="Head" Type="Int32" />
+          <Property Name="Stitches" Type="Int32" />
+          <Property Name="Seq" Type="Int32" />
+          <Property Name="W_Head" Type="Int32" />
+          <Property Name="Colors" Type="Int32" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="Component_Code" Type="Int32" />
+          <Property Name="DCode" Type="Int32" />
+          <Property Name="CollectionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="Deleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <Association Name="FK_Gen_Brands_Gen_Brands">
+          <End Type="EMB_ProductionModel.Gen_Brands" Role="Gen_Brands" Multiplicity="1" />
+          <End Type="EMB_ProductionModel.Gen_Brands" Role="Gen_Brands1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Gen_Brands">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gen_Brands1">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EMB_ProductionModelStoreContainer" CdmEntityContainer="EMB_ProductionEntities2">
+          <EntitySetMapping Name="Gen_Brands">
+            <EntityTypeMapping TypeName="EMB_ProductionModel.Gen_Brands">
+              <MappingFragment StoreEntitySet="Gen_Brands">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="RecordTimeStamp" ColumnName="RecordTimeStamp" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gen_Components">
+            <EntityTypeMapping TypeName="EMB_ProductionModel.Gen_Components">
+              <MappingFragment StoreEntitySet="Gen_Components">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="D_Code" ColumnName="D_Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="HeadToHead" ColumnName="HeadToHead" />
+                <ScalarProperty Name="Stitch" ColumnName="Stitch" />
+                <ScalarProperty Name="Tilla" ColumnName="Tilla" />
+                <ScalarProperty Name="Seq_A" ColumnName="Seq_A" />
+                <ScalarProperty Name="Seq_B" ColumnName="Seq_B" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gen_JobOrders">
+            <EntityTypeMapping TypeName="EMB_ProductionModel.Gen_JobOrders">
+              <MappingFragment StoreEntitySet="Gen_JobOrders">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="CompId" ColumnName="CompId" />
+                <ScalarProperty Name="ReqRepeats" ColumnName="ReqRepeats" />
+                <ScalarProperty Name="ReqHead" ColumnName="ReqHead" />
+                <ScalarProperty Name="Panni" ColumnName="Panni" />
+                <ScalarProperty Name="Solving" ColumnName="Solving" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gen_MachineParameters">
+            <EntityTypeMapping TypeName="EMB_ProductionModel.Gen_MachineParameters">
+              <MappingFragment StoreEntitySet="Gen_MachineParameters">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="HeadToHead" ColumnName="HeadToHead" />
+                <ScalarProperty Name="FrameHeight" ColumnName="FrameHeight" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gen_Machines">
+            <EntityTypeMapping TypeName="EMB_ProductionModel.Gen_Machines">
+              <MappingFragment StoreEntitySet="Gen_Machines">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+                <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+                <ScalarProperty Name="HeadtoHead" ColumnName="HeadtoHead" />
+                <ScalarProperty Name="FrameHeight" ColumnName="FrameHeight" />
+                <ScalarProperty Name="HeadsNum" ColumnName="HeadsNum" />
+                <ScalarProperty Name="NeedlesNum" ColumnName="NeedlesNum" />
+                <ScalarProperty Name="Serial_Number" ColumnName="Serial Number" />
+                <ScalarProperty Name="Calling_Number" ColumnName="Calling Number" />
+                <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+                <ScalarProperty Name="Warranty" ColumnName="Warranty" />
+                <ScalarProperty Name="ServiceEnd" ColumnName="ServiceEnd" />
+                <ScalarProperty Name="ServiceNext" ColumnName="ServiceNext" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="RecordTimeStamp" ColumnName="RecordTimeStamp" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gen_Products">
+            <EntityTypeMapping TypeName="EMB_ProductionModel.Gen_Products">
+              <MappingFragment StoreEntitySet="Gen_Products">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CatId" ColumnName="CatId" />
+                <ScalarProperty Name="Prod_Name" ColumnName="Prod_Name" />
+                <ScalarProperty Name="Prod_Code" ColumnName="Prod_Code" />
+                <ScalarProperty Name="Prod_Description" ColumnName="Prod_Description" />
+                <ScalarProperty Name="Prod_Qty" ColumnName="Prod_Qty" />
+                <ScalarProperty Name="Prod_Length" ColumnName="Prod_Length" />
+                <ScalarProperty Name="Prod_Weight" ColumnName="Prod_Weight" />
+                <ScalarProperty Name="Prod_DateIn" ColumnName="Prod_DateIn" />
+                <ScalarProperty Name="Prod_DateOut" ColumnName="Prod_DateOut" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="RecordTimeStamp" ColumnName="RecordTimeStamp" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="Category_Name" ColumnName="Category_Name" />
+                <ScalarProperty Name="Brand_Name" ColumnName="Brand_Name" />
+                <ScalarProperty Name="Tax" ColumnName="Tax" />
+                <ScalarProperty Name="Price_Method" ColumnName="Price_Method" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gen_ServiceRates">
+            <EntityTypeMapping TypeName="EMB_ProductionModel.Gen_ServiceRates">
+              <MappingFragment StoreEntitySet="Gen_ServiceRates">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+                <ScalarProperty Name="Service_Id" ColumnName="Service_Id" />
+                <ScalarProperty Name="Charge_Fector" ColumnName="Charge_Fector" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="RecordTimeStamp" ColumnName="RecordTimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gen_ServiceType">
+            <EntityTypeMapping TypeName="EMB_ProductionModel.Gen_ServiceType">
+              <MappingFragment StoreEntitySet="Gen_ServiceType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Service_Type" ColumnName="Service_Type" />
+                <ScalarProperty Name="Service_TypeDescription" ColumnName="Service_TypeDescription" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="RecordTimeStamp" ColumnName="RecordTimeStamp" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gen_TheServices">
+            <EntityTypeMapping TypeName="EMB_ProductionModel.Gen_TheServices">
+              <MappingFragment StoreEntitySet="Gen_TheServices">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Service_Type" ColumnName="Service_Type" />
+                <ScalarProperty Name="Service_Name" ColumnName="Service_Name" />
+                <ScalarProperty Name="Service_RateCharge" ColumnName="Service_RateCharge" />
+                <ScalarProperty Name="Machine_Device" ColumnName="Machine_Device" />
+                <ScalarProperty Name="Max_Range" ColumnName="Max_Range" />
+                <ScalarProperty Name="Max_Charges" ColumnName="Max_Charges" />
+                <ScalarProperty Name="Min_Charges" ColumnName="Min_Charges" />
+                <ScalarProperty Name="Field1" ColumnName="Field1" />
+                <ScalarProperty Name="Field2" ColumnName="Field2" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="RecordTimeStamp" ColumnName="RecordTimeStamp" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gen_ThreadUsage">
+            <EntityTypeMapping TypeName="EMB_ProductionModel.Gen_ThreadUsage">
+              <MappingFragment StoreEntitySet="Gen_ThreadUsage">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="CompId" ColumnName="CompId" />
+                <ScalarProperty Name="ThreadId" ColumnName="ThreadId" />
+                <ScalarProperty Name="Usage" ColumnName="Usage" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hr_Customers">
+            <EntityTypeMapping TypeName="EMB_ProductionModel.Hr_Customers">
+              <MappingFragment StoreEntitySet="Hr_Customers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+                <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
+                <ScalarProperty Name="NTN_Number" ColumnName="NTN_Number" />
+                <ScalarProperty Name="STRN_Number" ColumnName="STRN_Number" />
+                <ScalarProperty Name="Customer_Address" ColumnName="Customer_Address" />
+                <ScalarProperty Name="Customer_City" ColumnName="Customer_City" />
+                <ScalarProperty Name="Customer_Country" ColumnName="Customer_Country" />
+                <ScalarProperty Name="Customer_Email" ColumnName="Customer_Email" />
+                <ScalarProperty Name="Customer_Email2" ColumnName="Customer_Email2" />
+                <ScalarProperty Name="Customer_Phone" ColumnName="Customer_Phone" />
+                <ScalarProperty Name="Customer_Phone2" ColumnName="Customer_Phone2" />
+                <ScalarProperty Name="Customer_Mobile" ColumnName="Customer_Mobile" />
+                <ScalarProperty Name="Customer_Fax" ColumnName="Customer_Fax" />
+                <ScalarProperty Name="Customer_Credit_Limit_CAP" ColumnName="Customer_Credit_Limit_CAP" />
+                <ScalarProperty Name="Customer_Invoice_Period" ColumnName="Customer_Invoice_Period" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="RecordTimeStamp" ColumnName="RecordTimeStamp" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gen_Categories">
+            <EntityTypeMapping TypeName="EMB_ProductionModel.Gen_Categories">
+              <MappingFragment StoreEntitySet="Gen_Categories">
+                <ScalarProperty Name="Category_Name" ColumnName="Category_Name" />
+                <ScalarProperty Name="Tax" ColumnName="Tax" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="RecordTimeStamp" ColumnName="RecordTimeStamp" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="MeasureValue" ColumnName="MeasureValue" />
+                <ScalarProperty Name="MeasureType" ColumnName="MeasureType" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gen_Stock">
+            <EntityTypeMapping TypeName="EMB_ProductionModel.Gen_Stock">
+              <MappingFragment StoreEntitySet="Gen_Stock">
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Identity" ColumnName="Identity" />
+                <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+                <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+                <ScalarProperty Name="Condition" ColumnName="Condition" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="StockStatus" ColumnName="StockStatus" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="RecordTimeStamp" ColumnName="RecordTimeStamp" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="GatePass" ColumnName="GatePass" />
+                <ScalarProperty Name="BillNumber" ColumnName="BillNumber" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="TotalStock" ColumnName="TotalStock" />
+                <ScalarProperty Name="MeasureValue" ColumnName="MeasureValue" />
+                <ScalarProperty Name="Shelf" ColumnName="Shelf" />
+                <ScalarProperty Name="Rack" ColumnName="Rack" />
+                <ScalarProperty Name="StockDescription" ColumnName="StockDescription" />
+                <ScalarProperty Name="Out" ColumnName="Out" />
+                <ScalarProperty Name="In" ColumnName="In" />
+                <ScalarProperty Name="New" ColumnName="New" />
+                <ScalarProperty Name="InStock" ColumnName="InStock" />
+                <ScalarProperty Name="ProdId" ColumnName="ProdId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gen_Designs">
+            <EntityTypeMapping TypeName="EMB_ProductionModel.Gen_Designs">
+              <MappingFragment StoreEntitySet="Gen_Designs">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CollectionName" ColumnName="CollectionName" />
+                <ScalarProperty Name="DCode" ColumnName="DCode" />
+                <ScalarProperty Name="Component_Code" ColumnName="Component_Code" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Colors" ColumnName="Colors" />
+                <ScalarProperty Name="W_Head" ColumnName="W_Head" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+                <ScalarProperty Name="Stitches" ColumnName="Stitches" />
+                <ScalarProperty Name="Head" ColumnName="Head" />
+                <ScalarProperty Name="Req_Repeats" ColumnName="Req_Repeats" />
+                <ScalarProperty Name="Head_Email" ColumnName="Head_Email" />
+                <ScalarProperty Name="DNo" ColumnName="DNo" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Extra_Service" ColumnName="Extra_Service" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Fabric" ColumnName="Fabric" />
+                <ScalarProperty Name="EntryType" ColumnName="EntryType" />
+                <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

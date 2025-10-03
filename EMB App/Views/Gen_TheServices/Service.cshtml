@@ -1,0 +1,188 @@
+﻿@model DataBaseLibrary.Gen_TheServices
+@{
+    ViewBag.Title = "Services";
+}
+<div class="container my-0" style="width:900px">
+    @using (Html.BeginForm("SaveService", "Gen_TheServices", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @*<h4>@(Model.Id > 0 ? "Edit Service" : "Add New Service")</h4>
+                <hr />*@
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id, new { id = "selectedServiceTypeId" })
+
+            <div class="row g-3">
+                <!--<div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Service_Type, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Service_Type, new { htmlAttributes = new { @class = "form-control" } })-->
+                        @*@Html.DropDownList("Service_Type", null, " ", htmlAttributes: new { @class = "form-control" })*@
+                        <!--@Html.ValidationMessageFor(model => model.Service_Type, "", new { @class = "text-danger" })
+                    </div>
+                </div>-->
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Service_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Service_Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Service_Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Service_RateCharge, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Service_RateCharge, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Service_RateCharge, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <!-- Add other fields similarly -->
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Machine_Device, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Machine_Device, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Machine_Device, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Max_Range, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Max_Range, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Max_Range, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Max_Charges, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Max_Charges, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Max_Charges, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2 mt-0">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Min_Charges, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Min_Charges, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Min_Charges, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-2 mt-0">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Field1, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Field1, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Field1, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2 mt-0">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Field2, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Field2, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Field2, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-2 mt-0">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.BranchId, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.BranchId, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.BranchId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                @*<div class="col-md-2">
+                        <div class="form-group">
+                            <div class="checkbox mt-0" style="transform: scale(1.2); margin-left: 20px; font-size: 10px;">
+                                @Html.LabelFor(model => model.Active, htmlAttributes: new { @class = "control-label", style = "font-size:14px"})
+                                @Html.EditorFor(model => model.Active, new { htmlAttributes = new { style = "width: 100px; height: 25px;font-size:13px" } })
+                                @Html.ValidationMessageFor(model => model.Active, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <div class="checkbox mt-0" style="transform: scale(1.2); margin-left: 20px; font-size: 10px">
+                                @Html.LabelFor(model => model.Deleted, htmlAttributes: new { @class = "control-label", style = "font-size:14px" })
+                                @Html.EditorFor(model => model.Deleted, new { htmlAttributes = new { style = "width:100px; height: 25px;font-size:13px" } })
+                                @Html.ValidationMessageFor(model => model.Deleted, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>*@
+            </div>
+            <div class="form-group mt-3">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="@(Model.Id > 0 ? "Update" : "Create")" class="btn btn-primary"style="font-weight:600;" />
+                    @if (Model.Id > 0)
+                    {
+                        @Html.ActionLink("Cancel", "Service", null, new { @class = "btn btn-secondary" })
+                    }
+                    else
+                    {
+                        <input type="reset" value="Clear" class="btn btn-dark" style="font-weight:600;"/>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="table-responsive mt-3">
+        <table class="table table-bordered text-center">
+            <thead class="table-light">
+                <tr>
+                    @*<th>Service_Type</th>*@
+                    <th>Service_Name</th>
+                    <th>Service_Rate_Charge</th>
+                    <th>Machine/Device</th>
+                    <th>Max_Range</th>
+                    <th>Max_Charges</th>
+                    <th>Min_Charges</th>
+                    <th>Field1</th>
+                    <th>Field2</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewBag.ServicesList != null && ((IEnumerable<DataBaseLibrary.Gen_TheServices>)ViewBag.ServicesList).Any())
+                {
+                    foreach (var item in (IEnumerable<DataBaseLibrary.Gen_TheServices>)ViewBag.ServicesList)
+                    {
+                        <tr>
+                            @*<td>@item.Service_Type</td>*@
+                            <td>@item.Service_Name</td>
+                            <td>@item.Service_RateCharge</td>
+                            <td>@item.Machine_Device</td>
+                            <td>@item.Max_Range</td>
+                            <td>@item.Max_Charges</td>
+                            <td>@item.Min_Charges</td>
+                            <td>@item.Field1</td>
+                            <td>@item.Field2</td>
+                            <td class="d-flex align-items-center" style="grid-gap:4px">
+                                @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-sm btn-outline-success me-2 shadow-sm fa fa-edit", title = "Edit" })
+                                @using (Html.BeginForm("DeleteServices", "Gen_TheServices", FormMethod.Post, new { onsubmit = "return confirm('Are you sure you want to delete ?');", style = "display:inline" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.Hidden("id", item.Id)
+                                    <button type="submit" class="btn btn-sm btn-outline-danger shadow-sm" title="Delete">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                }
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="10" class="text-muted">No Services found.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    function selectServiceType(id, serviceType) {
+        document.getElementById('serviceTypeHiddenField').value = serviceType; // Set Service_Type
+        document.getElementById('threadDropdownBtn').textContent = serviceType; // Update UI
+    }
+</script>

@@ -1,0 +1,176 @@
+﻿@model DataBaseLibrary.Gen_ThreadUsage
+
+@{
+    ViewBag.Title = "Thread Usage";
+}
+
+@using (Html.BeginForm("SaveThreadUsage", "Gen_ThreadUsage", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @*<h4>@(Model.Id > 0 ? "Edit Service" : "Add New Service")</h4>
+            <hr />*@
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="row g-3">
+            <div class="col-md-2">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CompId, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.CompId, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CompId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ThreadId, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.ThreadId, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ThreadId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Usage, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.Usage, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Usage, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.Type, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.BranchId, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.BranchId, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.BranchId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CreatedBy, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.CreatedBy, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CreatedBy, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CreatedDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.CreatedDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CreatedDate, "31/01/2025 12:00 am", new { @class = "text-danger", style = "font-size:12px" })
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UpdatedBy, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.UpdatedBy, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.UpdatedBy, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UpdatedDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.UpdatedDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.UpdatedDate, "31/01/2025 12:00 am", new { @class = "text-danger", style = "font-size:12px" })
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="form-group">
+                    <div class="checkbox mt-0" style="transform: scale(1.2); margin-left: 20px; font-size: 10px">
+                        @Html.LabelFor(model => model.Active, htmlAttributes: new { @class = "control-label", style = "font-size:14px" })
+                        @Html.EditorFor(model => model.Active, new { htmlAttributes = new { style = "width:100px; height: 25px;font-size:13px" } })
+                        @Html.ValidationMessageFor(model => model.Active, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <div class="checkbox mt-0" style="transform: scale(1.2); margin-left: 20px; font-size: 10px">
+                        @Html.LabelFor(model => model.Deleted, htmlAttributes: new { @class = "control-label", style = "font-size:14px" })
+                        @Html.EditorFor(model => model.Deleted, new { htmlAttributes = new { style = "width:100px; height: 25px;font-size:13px" } })
+                        @Html.ValidationMessageFor(model => model.Deleted, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group mt-3">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="@(Model.Id > 0 ? "Update" : "Create")" class="btn btn-primary"style="font-weight:600;" />
+                @if (Model.Id > 0)
+                {
+                    @Html.ActionLink("Cancel", "ThreadUsage", null, new { @class = "btn btn-secondary" })
+                }
+                else
+                {
+                    <input type="reset" value="Clear" class="btn btn-dark"style="font-weight:600;" />
+                }
+            </div>
+        </div>
+    </div>
+}
+<div class="table-responsive mt-3">
+    <table class="table table-bordered text-center">
+        <thead class="table-light">
+            <tr>
+                <th>Code</th>
+                <th>CompId</th>
+                <th>ThreadId</th>
+                <th>Usage</th>
+                <th>Type</th>
+                <th>Deleted</th>
+                <th>Active</th>
+                <th>BranchId</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (ViewBag.ThreadList != null && ((IEnumerable<DataBaseLibrary.Gen_ThreadUsage>)ViewBag.ThreadList).Any())
+            {
+                foreach (var item in (IEnumerable<DataBaseLibrary.Gen_ThreadUsage>)ViewBag.ThreadList)
+                {
+                    <tr>
+                        <td>@item.Code</td>
+                        <td>@item.CompId</td>
+                        <td>@item.ThreadId</td>
+                        <td>@item.Usage</td>
+                        <td>@item.Type</td>
+                        <td>@item.Deleted</td>
+                        <td>@item.Active</td>
+                        <td>@item.BranchId</td>
+                        <td>
+                            @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-sm btn-outline-success me-2 shadow-sm fa fa-edit", title = "Edit" })
+                            @using (Html.BeginForm("DeleteThreadUsage", "Gen_ThreadUsage", FormMethod.Post, new { onsubmit = "return confirm('Are you sure you want to delete ?');", style = "display:inline" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.Hidden("id", item.Id)
+                                <button type="submit" class="btn btn-sm btn-outline-danger shadow-sm" title="Delete">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            }
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="9" class="text-muted">No Thread Usages found.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

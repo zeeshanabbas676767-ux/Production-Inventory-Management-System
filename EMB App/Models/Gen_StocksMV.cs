@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using DataBaseLibrary;
+
+namespace EMB_App.Models
+{
+    public class Gen_StocksMV
+    {
+        public int Id { get; set; }
+        public Nullable<int> ProdId { get; set; }
+        public Nullable<bool> InStock { get; set; }
+        public Nullable<bool> New { get; set; }
+        public Nullable<bool> In { get; set; }
+        public Nullable<bool> Out { get; set; }
+        public string StockDescription { get; set; }
+        public string Rack { get; set; }
+        public string Shelf { get; set; }
+        public string MeasureValue { get; set; }
+        public string TotalStock { get; set; }
+        public Nullable<decimal> TotalPrice { get; set; }
+        public string BillNumber { get; set; }
+        public string GatePass { get; set; }
+        public Nullable<int> BranchId { get; set; }
+        public Nullable<bool> Deleted { get; set; }
+        public Nullable<bool> Active { get; set; }
+        public Nullable<System.DateTime> RecordTimeStamp { get; set; }
+        public Nullable<int> CreatedBy { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public Nullable<int> UpdatedBy { get; set; }
+        public Nullable<System.DateTime> UpdatedDate { get; set; }
+        public string StockStatus { get; set; }
+        public string ProductName { get; set; }
+        public string Condition { get; set; }
+        public string BrandName { get; set; }
+        public string VendorName { get; set; }
+        public string Identity { get; set; }
+        public Nullable<decimal> Price { get; set; }
+        public Nullable<int> Quantity { get; set; }
+        public virtual Gen_ProductsMV Gen_Products { get; set; }
+    }
+}
