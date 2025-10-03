@@ -14,7 +14,7 @@ This project demonstrates full **CRUD (Create, Read, Update, Delete)** operation
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 - ASP.NET MVC 5
 - C# .NET Framework
 - SQL Server (with database script provided)
@@ -23,4 +23,4 @@ This project demonstrates full **CRUD (Create, Read, Update, Delete)** operation
 
 ---
 
-## 📂 Project Structure
+## Project Structure
