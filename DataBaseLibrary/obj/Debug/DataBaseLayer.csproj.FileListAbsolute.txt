@@ -1,0 +1,12 @@
+D:\MyFinalProject\Application\EMB App\DataBaseLibrary\bin\Debug\DataBaseLibrary.dll.config
+D:\MyFinalProject\Application\EMB App\DataBaseLibrary\bin\Debug\DataBaseLibrary.dll
+D:\MyFinalProject\Application\EMB App\DataBaseLibrary\bin\Debug\DataBaseLibrary.pdb
+D:\MyFinalProject\Application\EMB App\DataBaseLibrary\bin\Debug\EntityFramework.dll
+D:\MyFinalProject\Application\EMB App\DataBaseLibrary\bin\Debug\EntityFramework.SqlServer.dll
+D:\MyFinalProject\Application\EMB App\DataBaseLibrary\bin\Debug\EntityFramework.xml
+D:\MyFinalProject\Application\EMB App\DataBaseLibrary\bin\Debug\EntityFramework.SqlServer.xml
+D:\MyFinalProject\Application\EMB App\DataBaseLibrary\obj\Debug\DataBaseLayer.csproj.AssemblyReference.cache
+D:\MyFinalProject\Application\EMB App\DataBaseLibrary\obj\Debug\DataBaseLayer.csproj.CoreCompileInputs.cache
+D:\MyFinalProject\Application\EMB App\DataBaseLibrary\obj\Debug\DataBase.D97539FC.Up2Date
+D:\MyFinalProject\Application\EMB App\DataBaseLibrary\obj\Debug\DataBaseLibrary.dll
+D:\MyFinalProject\Application\EMB App\DataBaseLibrary\obj\Debug\DataBaseLibrary.pdb

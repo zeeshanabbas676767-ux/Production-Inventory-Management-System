@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EMB_ProductionModelStoreContainer" CdmEntityContainer="EMB_ProductionEntities">
+    <EntitySetMapping Name="Gen_Brands">
+      <EntityTypeMapping TypeName="EMB_ProductionModel.Gen_Brands">
+        <MappingFragment StoreEntitySet="Gen_Brands">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="RecordTimeStamp" ColumnName="RecordTimeStamp" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gen_Categories">
+      <EntityTypeMapping TypeName="EMB_ProductionModel.Gen_Categories">
+        <MappingFragment StoreEntitySet="Gen_Categories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="MeasureType" ColumnName="MeasureType" />
+          <ScalarProperty Name="MeasureValue" ColumnName="MeasureValue" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Length" ColumnName="Length" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="RecordTimeStamp" ColumnName="RecordTimeStamp" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="Category_Name" ColumnName="Category_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gen_Components">
+      <EntityTypeMapping TypeName="EMB_ProductionModel.Gen_Components">
+        <MappingFragment StoreEntitySet="Gen_Components">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="D_Code" ColumnName="D_Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="HeadToHead" ColumnName="HeadToHead" />
+          <ScalarProperty Name="Stitch" ColumnName="Stitch" />
+          <ScalarProperty Name="Tilla" ColumnName="Tilla" />
+          <ScalarProperty Name="Seq_A" ColumnName="Seq_A" />
+          <ScalarProperty Name="Seq_B" ColumnName="Seq_B" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gen_JobOrders">
+      <EntityTypeMapping TypeName="EMB_ProductionModel.Gen_JobOrders">
+        <MappingFragment StoreEntitySet="Gen_JobOrders">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CompId" ColumnName="CompId" />
+          <ScalarProperty Name="ReqRepeats" ColumnName="ReqRepeats" />
+          <ScalarProperty Name="ReqHead" ColumnName="ReqHead" />
+          <ScalarProperty Name="Panni" ColumnName="Panni" />
+          <ScalarProperty Name="Solving" ColumnName="Solving" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gen_MachineParameters">
+      <EntityTypeMapping TypeName="EMB_ProductionModel.Gen_MachineParameters">
+        <MappingFragment StoreEntitySet="Gen_MachineParameters">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HeadToHead" ColumnName="HeadToHead" />
+          <ScalarProperty Name="FrameHeight" ColumnName="FrameHeight" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gen_Machines">
+      <EntityTypeMapping TypeName="EMB_ProductionModel.Gen_Machines">
+        <MappingFragment StoreEntitySet="Gen_Machines">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+          <ScalarProperty Name="HeadtoHead" ColumnName="HeadtoHead" />
+          <ScalarProperty Name="FrameHeight" ColumnName="FrameHeight" />
+          <ScalarProperty Name="HeadsNum" ColumnName="HeadsNum" />
+          <ScalarProperty Name="NeedlesNum" ColumnName="NeedlesNum" />
+          <ScalarProperty Name="Serial_Number" ColumnName="Serial Number" />
+          <ScalarProperty Name="Calling_Number" ColumnName="Calling Number" />
+          <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+          <ScalarProperty Name="Warranty" ColumnName="Warranty" />
+          <ScalarProperty Name="ServiceEnd" ColumnName="ServiceEnd" />
+          <ScalarProperty Name="ServiceNext" ColumnName="ServiceNext" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="RecordTimeStamp" ColumnName="RecordTimeStamp" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gen_Products">
+      <EntityTypeMapping TypeName="EMB_ProductionModel.Gen_Products">
+        <MappingFragment StoreEntitySet="Gen_Products">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CatId" ColumnName="CatId" />
+          <ScalarProperty Name="Prod_Name" ColumnName="Prod_Name" />
+          <ScalarProperty Name="Prod_Code" ColumnName="Prod_Code" />
+          <ScalarProperty Name="Prod_Description" ColumnName="Prod_Description" />
+          <ScalarProperty Name="Prod_Qty" ColumnName="Prod_Qty" />
+          <ScalarProperty Name="Prod_Length" ColumnName="Prod_Length" />
+          <ScalarProperty Name="Prod_Weight" ColumnName="Prod_Weight" />
+          <ScalarProperty Name="Prod_DateIn" ColumnName="Prod_DateIn" />
+          <ScalarProperty Name="Prod_DateOut" ColumnName="Prod_DateOut" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="RecordTimeStamp" ColumnName="RecordTimeStamp" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="Category_Name" ColumnName="Category_Name" />
+          <ScalarProperty Name="Brand_Name" ColumnName="Brand_Name" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="Price_Method" ColumnName="Price_Method" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gen_ServiceRates">
+      <EntityTypeMapping TypeName="EMB_ProductionModel.Gen_ServiceRates">
+        <MappingFragment StoreEntitySet="Gen_ServiceRates">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="Service_Id" ColumnName="Service_Id" />
+          <ScalarProperty Name="Charge_Fector" ColumnName="Charge_Fector" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="RecordTimeStamp" ColumnName="RecordTimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gen_ServiceType">
+      <EntityTypeMapping TypeName="EMB_ProductionModel.Gen_ServiceType">
+        <MappingFragment StoreEntitySet="Gen_ServiceType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Service_Type" ColumnName="Service_Type" />
+          <ScalarProperty Name="Service_TypeDescription" ColumnName="Service_TypeDescription" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="RecordTimeStamp" ColumnName="RecordTimeStamp" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gen_Stock">
+      <EntityTypeMapping TypeName="EMB_ProductionModel.Gen_Stock">
+        <MappingFragment StoreEntitySet="Gen_Stock">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProdId" ColumnName="ProdId" />
+          <ScalarProperty Name="InStock" ColumnName="InStock" />
+          <ScalarProperty Name="New" ColumnName="New" />
+          <ScalarProperty Name="In" ColumnName="In" />
+          <ScalarProperty Name="Out" ColumnName="Out" />
+          <ScalarProperty Name="StockDescription" ColumnName="StockDescription" />
+          <ScalarProperty Name="Rack" ColumnName="Rack" />
+          <ScalarProperty Name="Shelf" ColumnName="Shelf" />
+          <ScalarProperty Name="MeasureValue" ColumnName="MeasureValue" />
+          <ScalarProperty Name="TotalStock" ColumnName="TotalStock" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="BillNumber" ColumnName="BillNumber" />
+          <ScalarProperty Name="GatePass" ColumnName="GatePass" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="RecordTimeStamp" ColumnName="RecordTimeStamp" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="StockStatus" ColumnName="StockStatus" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Condition" ColumnName="Condition" />
+          <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+          <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+          <ScalarProperty Name="Identity" ColumnName="Identity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gen_TheServices">
+      <EntityTypeMapping TypeName="EMB_ProductionModel.Gen_TheServices">
+        <MappingFragment StoreEntitySet="Gen_TheServices">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Service_Type" ColumnName="Service_Type" />
+          <ScalarProperty Name="Service_Name" ColumnName="Service_Name" />
+          <ScalarProperty Name="Service_RateCharge" ColumnName="Service_RateCharge" />
+          <ScalarProperty Name="Machine_Device" ColumnName="Machine_Device" />
+          <ScalarProperty Name="Max_Range" ColumnName="Max_Range" />
+          <ScalarProperty Name="Max_Charges" ColumnName="Max_Charges" />
+          <ScalarProperty Name="Min_Charges" ColumnName="Min_Charges" />
+          <ScalarProperty Name="Field1" ColumnName="Field1" />
+          <ScalarProperty Name="Field2" ColumnName="Field2" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="RecordTimeStamp" ColumnName="RecordTimeStamp" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gen_ThreadUsage">
+      <EntityTypeMapping TypeName="EMB_ProductionModel.Gen_ThreadUsage">
+        <MappingFragment StoreEntitySet="Gen_ThreadUsage">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CompId" ColumnName="CompId" />
+          <ScalarProperty Name="ThreadId" ColumnName="ThreadId" />
+          <ScalarProperty Name="Usage" ColumnName="Usage" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GenDesigns">
+      <EntityTypeMapping TypeName="EMB_ProductionModel.GenDesign">
+        <MappingFragment StoreEntitySet="GenDesigns">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="EntryType" ColumnName="EntryType" />
+          <ScalarProperty Name="Fabric" ColumnName="Fabric" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Extra_Service" ColumnName="Extra_Service" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="DNo" ColumnName="DNo" />
+          <ScalarProperty Name="Head_Email" ColumnName="Head_Email" />
+          <ScalarProperty Name="Req_Repeats" ColumnName="Req_Repeats" />
+          <ScalarProperty Name="Head" ColumnName="Head" />
+          <ScalarProperty Name="Stitches" ColumnName="Stitches" />
+          <ScalarProperty Name="Seq" ColumnName="Seq" />
+          <ScalarProperty Name="W_Head" ColumnName="W_Head" />
+          <ScalarProperty Name="Colors" ColumnName="Colors" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Component_Code" ColumnName="Component_Code" />
+          <ScalarProperty Name="DCode" ColumnName="DCode" />
+          <ScalarProperty Name="CollectionName" ColumnName="CollectionName" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hr_Customers">
+      <EntityTypeMapping TypeName="EMB_ProductionModel.Hr_Customers">
+        <MappingFragment StoreEntitySet="Hr_Customers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
+          <ScalarProperty Name="NTN_Number" ColumnName="NTN_Number" />
+          <ScalarProperty Name="STRN_Number" ColumnName="STRN_Number" />
+          <ScalarProperty Name="Customer_Address" ColumnName="Customer_Address" />
+          <ScalarProperty Name="Customer_City" ColumnName="Customer_City" />
+          <ScalarProperty Name="Customer_Country" ColumnName="Customer_Country" />
+          <ScalarProperty Name="Customer_Email" ColumnName="Customer_Email" />
+          <ScalarProperty Name="Customer_Email2" ColumnName="Customer_Email2" />
+          <ScalarProperty Name="Customer_Phone" ColumnName="Customer_Phone" />
+          <ScalarProperty Name="Customer_Phone2" ColumnName="Customer_Phone2" />
+          <ScalarProperty Name="Customer_Mobile" ColumnName="Customer_Mobile" />
+          <ScalarProperty Name="Customer_Fax" ColumnName="Customer_Fax" />
+          <ScalarProperty Name="Customer_Credit_Limit_CAP" ColumnName="Customer_Credit_Limit_CAP" />
+          <ScalarProperty Name="Customer_Invoice_Period" ColumnName="Customer_Invoice_Period" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="RecordTimeStamp" ColumnName="RecordTimeStamp" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

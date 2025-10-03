@@ -194,6 +194,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\Template\css\app-rtl.css" />
     <Content Include="Content\Template\css\app.css" />
@@ -373,6 +374,7 @@
     <Content Include="Content\Template\vendor\x-editable\dist\bootstrap3-editable\img\clear.png" />
     <Content Include="Content\Template\vendor\x-editable\dist\bootstrap3-editable\img\loading.gif" />
     <Content Include="Content\Template\vendor\x-editable\dist\bootstrap3-editable\js\bootstrap-editable.js" />
+    <Content Include="DataBaseScript\EMB_Production.sql" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -399,6 +401,8 @@
     <Content Include="Content\Template\vendor\weather-icons\font\weathericons-regular-webfont.ttf" />
     <Content Include="Content\Template\vendor\weather-icons\font\weathericons-regular-webfont.woff" />
     <Content Include="Content\Template\vendor\weather-icons\font\weathericons-regular-webfont.woff2" />
+    <Content Include="ConnectionStrings.config" />
+    <None Include="ConnectionStrings.config.example" />
     <None Include="packages.config" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
@@ -440,7 +444,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="DataBaseScript\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\bootstrap.min.js.map" />

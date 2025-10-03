@@ -1,0 +1,12 @@
+D:\MyFinalProject\Application\EMB App\ClassLibrary2\obj\Debug\ClassLibrary2.csproj.AssemblyReference.cache
+D:\MyFinalProject\Application\EMB App\ClassLibrary2\obj\Debug\ClassLibrary2.csproj.CoreCompileInputs.cache
+D:\MyFinalProject\Application\EMB App\ClassLibrary2\bin\Debug\ClassLibrary2.dll.config
+D:\MyFinalProject\Application\EMB App\ClassLibrary2\bin\Debug\ClassLibrary2.dll
+D:\MyFinalProject\Application\EMB App\ClassLibrary2\bin\Debug\ClassLibrary2.pdb
+D:\MyFinalProject\Application\EMB App\ClassLibrary2\bin\Debug\EntityFramework.dll
+D:\MyFinalProject\Application\EMB App\ClassLibrary2\bin\Debug\EntityFramework.SqlServer.dll
+D:\MyFinalProject\Application\EMB App\ClassLibrary2\bin\Debug\EntityFramework.xml
+D:\MyFinalProject\Application\EMB App\ClassLibrary2\bin\Debug\EntityFramework.SqlServer.xml
+D:\MyFinalProject\Application\EMB App\ClassLibrary2\obj\Debug\ClassLib.E736BE99.Up2Date
+D:\MyFinalProject\Application\EMB App\ClassLibrary2\obj\Debug\ClassLibrary2.dll
+D:\MyFinalProject\Application\EMB App\ClassLibrary2\obj\Debug\ClassLibrary2.pdb

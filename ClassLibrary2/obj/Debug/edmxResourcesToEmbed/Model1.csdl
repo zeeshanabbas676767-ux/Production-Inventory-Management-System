@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EMB_ProductionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Gen_Brands">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BrandName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BranchId" Type="Int32" Nullable="false" />
+    <Property Name="Deleted" Type="Boolean" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="RecordTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Gen_Brands1" Relationship="Self.FK_Gen_Brands_Gen_Brands" FromRole="Gen_Brands" ToRole="Gen_Brands1" />
+    <NavigationProperty Name="Gen_Brands2" Relationship="Self.FK_Gen_Brands_Gen_Brands" FromRole="Gen_Brands1" ToRole="Gen_Brands" />
+    <NavigationProperty Name="Gen_Categories" Relationship="Self.FK_Gen_Categories_Gen_Brands" FromRole="Gen_Brands" ToRole="Gen_Categories" />
+    <NavigationProperty Name="Gen_Machines" Relationship="Self.FK_Gen_Machines_Gen_Brands" FromRole="Gen_Brands" ToRole="Gen_Machines" />
+  </EntityType>
+  <EntityType Name="Gen_Categories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BrandId" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MeasureType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MeasureValue" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Quantity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Length" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Weight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="RecordTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Tax" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Category_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Gen_Brands" Relationship="Self.FK_Gen_Categories_Gen_Brands" FromRole="Gen_Categories" ToRole="Gen_Brands" />
+  </EntityType>
+  <EntityType Name="Gen_Components">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="Int32" />
+    <Property Name="D_Code" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HeadToHead" Type="Int32" />
+    <Property Name="Stitch" Type="Int32" />
+    <Property Name="Tilla" Type="Int32" />
+    <Property Name="Seq_A" Type="Int32" />
+    <Property Name="Seq_B" Type="Int32" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Gen_JobOrders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="Int32" />
+    <Property Name="CompId" Type="Int32" />
+    <Property Name="ReqRepeats" Type="Int32" />
+    <Property Name="ReqHead" Type="Int32" />
+    <Property Name="Panni" Type="Int32" />
+    <Property Name="Solving" Type="Int32" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Gen_MachineParameters">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HeadToHead" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FrameHeight" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Deleted" Type="Boolean" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Gen_Machines">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BrandId" Type="Int32" />
+    <Property Name="ServiceId" Type="Int32" />
+    <Property Name="HeadtoHead" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FrameHeight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HeadsNum" Type="Int32" />
+    <Property Name="NeedlesNum" Type="Int32" />
+    <Property Name="Serial_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Calling_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseDate" Type="DateTime" Precision="3" />
+    <Property Name="Warranty" Type="Int32" />
+    <Property Name="ServiceEnd" Type="DateTime" Precision="0" />
+    <Property Name="ServiceNext" Type="DateTime" Precision="0" />
+    <Property Name="Deleted" Type="Boolean" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="RecordTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="BranchId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Gen_Brands" Relationship="Self.FK_Gen_Machines_Gen_Brands" FromRole="Gen_Machines" ToRole="Gen_Brands" />
+    <NavigationProperty Name="Gen_TheServices" Relationship="Self.FK_Gen_Machines_Gen_TheServices" FromRole="Gen_Machines" ToRole="Gen_TheServices" />
+  </EntityType>
+  <EntityType Name="Gen_Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CatId" Type="Int32" />
+    <Property Name="Prod_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Prod_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Prod_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Prod_Qty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Prod_Length" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Prod_Weight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Prod_DateIn" Type="DateTime" Precision="0" />
+    <Property Name="Prod_DateOut" Type="DateTime" Precision="0" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="BranchId" Type="Int32" Nullable="false" />
+    <Property Name="Deleted" Type="Boolean" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="RecordTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Category_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Brand_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tax" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Price_Method" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Gen_Stock" Relationship="Self.FK_Gen_Stock_Gen_Products" FromRole="Gen_Products" ToRole="Gen_Stock" />
+  </EntityType>
+  <EntityType Name="Gen_ServiceRates">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Customer_Id" Type="Int32" />
+    <Property Name="Service_Id" Type="Int32" />
+    <Property Name="Charge_Fector" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <Property Name="RecordTimeStamp" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Gen_TheServices" Relationship="Self.FK_Gen_ServiceRates_Gen_TheServices" FromRole="Gen_ServiceRates" ToRole="Gen_TheServices" />
+    <NavigationProperty Name="Hr_Customers" Relationship="Self.FK_Gen_ServiceRates_Hr_Customers" FromRole="Gen_ServiceRates" ToRole="Hr_Customers" />
+  </EntityType>
+  <EntityType Name="Gen_ServiceType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Service_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Service_TypeDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="RecordTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Gen_TheServices" Relationship="Self.FK_Gen_TheServices_Gen_ServiceType" FromRole="Gen_ServiceType" ToRole="Gen_TheServices" />
+  </EntityType>
+  <EntityType Name="Gen_Stock">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProdId" Type="Int32" />
+    <Property Name="InStock" Type="Boolean" />
+    <Property Name="New" Type="Boolean" />
+    <Property Name="In" Type="Boolean" />
+    <Property Name="Out" Type="Boolean" />
+    <Property Name="StockDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Rack" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Shelf" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MeasureValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TotalStock" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="BillNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GatePass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="RecordTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="StockStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Condition" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BrandName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VendorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Identity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Quantity" Type="Int32" />
+    <NavigationProperty Name="Gen_Products" Relationship="Self.FK_Gen_Stock_Gen_Products" FromRole="Gen_Stock" ToRole="Gen_Products" />
+  </EntityType>
+  <EntityType Name="Gen_TheServices">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Service_Type" Type="Int32" />
+    <Property Name="Service_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Service_RateCharge" Type="Int32" />
+    <Property Name="Machine_Device" Type="Int32" />
+    <Property Name="Max_Range" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Max_Charges" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Min_Charges" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Field1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Field2" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="RecordTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Gen_Machines" Relationship="Self.FK_Gen_Machines_Gen_TheServices" FromRole="Gen_TheServices" ToRole="Gen_Machines" />
+    <NavigationProperty Name="Gen_ServiceRates" Relationship="Self.FK_Gen_ServiceRates_Gen_TheServices" FromRole="Gen_TheServices" ToRole="Gen_ServiceRates" />
+    <NavigationProperty Name="Gen_ServiceType" Relationship="Self.FK_Gen_TheServices_Gen_ServiceType" FromRole="Gen_TheServices" ToRole="Gen_ServiceType" />
+  </EntityType>
+  <EntityType Name="Gen_ThreadUsage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="Int32" />
+    <Property Name="CompId" Type="Int32" />
+    <Property Name="ThreadId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Usage" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="GenDesign">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Customer_Id" Type="Int32" />
+    <Property Name="EntryType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Fabric" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Extra_Service" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="Int32" />
+    <Property Name="DNo" Type="Int32" />
+    <Property Name="Head_Email" Type="Int32" />
+    <Property Name="Req_Repeats" Type="Int32" />
+    <Property Name="Head" Type="Int32" />
+    <Property Name="Stitches" Type="Int32" />
+    <Property Name="Seq" Type="Int32" />
+    <Property Name="W_Head" Type="Int32" />
+    <Property Name="Colors" Type="Int32" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="Component_Code" Type="Int32" />
+    <Property Name="DCode" Type="Int32" />
+    <Property Name="CollectionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Hr_Customers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Customer_Id" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Customer_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NTN_Number" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="STRN_Number" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Customer_Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Customer_City" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Customer_Country" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Customer_Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Customer_Email2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Customer_Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Customer_Phone2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Customer_Mobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Customer_Fax" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Customer_Credit_Limit_CAP" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Customer_Invoice_Period" Type="Int32" />
+    <Property Name="BranchId" Type="Int32" Nullable="false" />
+    <Property Name="RecordTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Deleted" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Gen_ServiceRates" Relationship="Self.FK_Gen_ServiceRates_Hr_Customers" FromRole="Hr_Customers" ToRole="Gen_ServiceRates" />
+  </EntityType>
+  <Association Name="FK_Gen_Brands_Gen_Brands">
+    <End Role="Gen_Brands" Type="Self.Gen_Brands" Multiplicity="1" />
+    <End Role="Gen_Brands1" Type="Self.Gen_Brands" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Gen_Brands">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gen_Brands1">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gen_Categories_Gen_Brands">
+    <End Role="Gen_Brands" Type="Self.Gen_Brands" Multiplicity="0..1" />
+    <End Role="Gen_Categories" Type="Self.Gen_Categories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gen_Brands">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gen_Categories">
+        <PropertyRef Name="BrandId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gen_Machines_Gen_Brands">
+    <End Role="Gen_Brands" Type="Self.Gen_Brands" Multiplicity="0..1" />
+    <End Role="Gen_Machines" Type="Self.Gen_Machines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gen_Brands">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gen_Machines">
+        <PropertyRef Name="BrandId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gen_Machines_Gen_TheServices">
+    <End Role="Gen_TheServices" Type="Self.Gen_TheServices" Multiplicity="0..1" />
+    <End Role="Gen_Machines" Type="Self.Gen_Machines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gen_TheServices">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gen_Machines">
+        <PropertyRef Name="ServiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gen_Stock_Gen_Products">
+    <End Role="Gen_Products" Type="Self.Gen_Products" Multiplicity="0..1" />
+    <End Role="Gen_Stock" Type="Self.Gen_Stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gen_Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gen_Stock">
+        <PropertyRef Name="ProdId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gen_ServiceRates_Gen_TheServices">
+    <End Role="Gen_TheServices" Type="Self.Gen_TheServices" Multiplicity="0..1" />
+    <End Role="Gen_ServiceRates" Type="Self.Gen_ServiceRates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gen_TheServices">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gen_ServiceRates">
+        <PropertyRef Name="Service_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gen_ServiceRates_Hr_Customers">
+    <End Role="Hr_Customers" Type="Self.Hr_Customers" Multiplicity="0..1" />
+    <End Role="Gen_ServiceRates" Type="Self.Gen_ServiceRates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hr_Customers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gen_ServiceRates">
+        <PropertyRef Name="Customer_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gen_TheServices_Gen_ServiceType">
+    <End Role="Gen_ServiceType" Type="Self.Gen_ServiceType" Multiplicity="0..1" />
+    <End Role="Gen_TheServices" Type="Self.Gen_TheServices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gen_ServiceType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gen_TheServices">
+        <PropertyRef Name="Service_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EMB_ProductionEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Gen_Brands" EntityType="Self.Gen_Brands" />
+    <EntitySet Name="Gen_Categories" EntityType="Self.Gen_Categories" />
+    <EntitySet Name="Gen_Components" EntityType="Self.Gen_Components" />
+    <EntitySet Name="Gen_JobOrders" EntityType="Self.Gen_JobOrders" />
+    <EntitySet Name="Gen_MachineParameters" EntityType="Self.Gen_MachineParameters" />
+    <EntitySet Name="Gen_Machines" EntityType="Self.Gen_Machines" />
+    <EntitySet Name="Gen_Products" EntityType="Self.Gen_Products" />
+    <EntitySet Name="Gen_ServiceRates" EntityType="Self.Gen_ServiceRates" />
+    <EntitySet Name="Gen_ServiceType" EntityType="Self.Gen_ServiceType" />
+    <EntitySet Name="Gen_Stock" EntityType="Self.Gen_Stock" />
+    <EntitySet Name="Gen_TheServices" EntityType="Self.Gen_TheServices" />
+    <EntitySet Name="Gen_ThreadUsage" EntityType="Self.Gen_ThreadUsage" />
+    <EntitySet Name="GenDesigns" EntityType="Self.GenDesign" />
+    <EntitySet Name="Hr_Customers" EntityType="Self.Hr_Customers" />
+    <AssociationSet Name="FK_Gen_Brands_Gen_Brands" Association="Self.FK_Gen_Brands_Gen_Brands">
+      <End Role="Gen_Brands" EntitySet="Gen_Brands" />
+      <End Role="Gen_Brands1" EntitySet="Gen_Brands" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gen_Categories_Gen_Brands" Association="Self.FK_Gen_Categories_Gen_Brands">
+      <End Role="Gen_Brands" EntitySet="Gen_Brands" />
+      <End Role="Gen_Categories" EntitySet="Gen_Categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gen_Machines_Gen_Brands" Association="Self.FK_Gen_Machines_Gen_Brands">
+      <End Role="Gen_Brands" EntitySet="Gen_Brands" />
+      <End Role="Gen_Machines" EntitySet="Gen_Machines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gen_Machines_Gen_TheServices" Association="Self.FK_Gen_Machines_Gen_TheServices">
+      <End Role="Gen_TheServices" EntitySet="Gen_TheServices" />
+      <End Role="Gen_Machines" EntitySet="Gen_Machines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gen_Stock_Gen_Products" Association="Self.FK_Gen_Stock_Gen_Products">
+      <End Role="Gen_Products" EntitySet="Gen_Products" />
+      <End Role="Gen_Stock" EntitySet="Gen_Stock" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gen_ServiceRates_Gen_TheServices" Association="Self.FK_Gen_ServiceRates_Gen_TheServices">
+      <End Role="Gen_TheServices" EntitySet="Gen_TheServices" />
+      <End Role="Gen_ServiceRates" EntitySet="Gen_ServiceRates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gen_ServiceRates_Hr_Customers" Association="Self.FK_Gen_ServiceRates_Hr_Customers">
+      <End Role="Hr_Customers" EntitySet="Hr_Customers" />
+      <End Role="Gen_ServiceRates" EntitySet="Gen_ServiceRates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gen_TheServices_Gen_ServiceType" Association="Self.FK_Gen_TheServices_Gen_ServiceType">
+      <End Role="Gen_ServiceType" EntitySet="Gen_ServiceType" />
+      <End Role="Gen_TheServices" EntitySet="Gen_TheServices" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
